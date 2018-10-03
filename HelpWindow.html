@@ -18,21 +18,14 @@
 <li><a href="#listing-all-persons-code-list-code">3.3. Listing all persons : <code>list</code></a></li>
 <li><a href="#editing-a-person-code-edit-code">3.4. Editing a person : <code>edit</code></a></li>
 <li><a href="#locating-persons-by-name-code-find-code">3.5. Locating persons by name: <code>find</code></a></li>
-<li><a href="#deleting-a-person-code-delete-code">3.6. Deleting a person : <code>delete</code></a></li>
-<li><a href="#selecting-a-person-code-select-code">3.7. Selecting a person : <code>select</code></a></li>
-<li><a href="#listing-entered-commands-code-history-code">3.8. Listing entered commands : <code>history</code></a></li>
-<li><a href="#analyzing-grades-commands-code-grades-code">3.9. Analyzing grades commands : <code>grades</code></a></li>
-<li><a href="#retrieving-earnings-code-earnings-code">3.10. Retrieving earnings : <code>earnings</code></a></li>
-<li><a href="#undoing-previous-command-code-undo-code">3.11. Undoing previous command : <code>undo</code></a></li>
-<li><a href="#redoing-the-previously-undone-command-code-redo-code">3.12. Redoing the previously undone command : <code>redo</code></a></li>
-<li><a href="#clearing-all-entries-code-clear-code">3.13. Clearing all entries : <code>clear</code></a></li>
-<li><a href="#exiting-the-program-code-exit-code">3.14. Exiting the program : <code>exit</code></a></li>
-<li><a href="#saving-the-data">3.15. Saving the data</a></li>
-<li><a href="#encrypting-data-files-code-coming-in-v2-0-code">3.16. Encrypting data files <code>[coming in v2.0]</code></a></li>
+<li><a href="#locating-persons-by-email-address-code-find-e-code">3.6. Locating persons by email address: <code>find/e</code></a></li>
+<li><a href="#deleting-a-person-code-delete-code">3.7. Deleting a person : <code>delete</code></a></li>
+<li><a href="#selecting-a-person-code-select-code">3.8. Selecting a person : <code>select</code></a></li>
+<li><a href="#making-list-by-limit-fee-command-code-filterbyfee-code">3.9. Making list by limit fee command: <code>filterByFee</code></a></li>
+<li><a href="#listing-entered-commands-code-history-code">3.10. Listing entered commands : <code>history</code></a></li>
+<li><a href="#analyzing-grades-commands-code-grades-code">3.11. Analyzing grades commands : <code>grades</code></a></li>
 </ul>
 </li>
-<li><a href="#faq">4. FAQ</a></li>
-<li><a href="#command-summary">5. Command Summary</a></li>
 </ul>
 </div>
 </div>
@@ -258,7 +251,49 @@ Returns any person having names <code>Betsy</code>, <code>Tim</code>, or <code>J
 </div>
 </div>
 <div class="sect2">
-<h3 id="deleting-a-person-code-delete-code"><a class="link" href="#deleting-a-person-code-delete-code">3.6. Deleting a person : <code>delete</code></a></h3>
+<h3 id="locating-persons-by-email-address-code-find-e-code"><a class="link" href="#locating-persons-by-email-address-code-find-e-code">3.6. Locating persons by email address: <code>find/e</code></a></h3>
+<div class="paragraph">
+<p>Finds a person through his/her email address.<br>
+Format: <code>find/e EMAIL</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The search is case insensitive. e.g <code>abc@example.com</code> will match <code>ABc@example.com</code></p>
+</li>
+<li>
+<p>Only the email is searched.</p>
+</li>
+<li>
+<p>Only full words will be matched. e.g. <code>abc@example</code> will not match <code>abcd@example.com</code></p>
+</li>
+<li>
+<p>Person matching the email will be returned.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>find/e <a href="mailto:John@example.com">John@example.com</a></code><br>
+Returns <code>John Doe</code> whose email address is <code>John@example.com</code></p>
+</li>
+<li>
+<p><code>find/e <a href="mailto:TIM@EXAmple.Com">TIM@EXAmple.Com</a></code><br>
+Returns <code>Tim</code> whose email address is <code>tim@example.com</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="deleting-a-person-code-delete-code"><a class="link" href="#deleting-a-person-code-delete-code">3.7. Deleting a person : <code>delete</code></a></h3>
 <div class="paragraph">
 <p>Deletes the specified person from the address book.<br>
 Format: <code>delete INDEX</code></p>
@@ -299,7 +334,7 @@ Deletes the 1st person in the results of the <code>find</code> command.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="selecting-a-person-code-select-code"><a class="link" href="#selecting-a-person-code-select-code">3.7. Selecting a person : <code>select</code></a></h3>
+<h3 id="selecting-a-person-code-select-code"><a class="link" href="#selecting-a-person-code-select-code">3.8. Selecting a person : <code>select</code></a></h3>
 <div class="paragraph">
 <p>Selects the person identified by the index number used in the displayed person list.<br>
 Format: <code>select INDEX</code></p>
@@ -340,7 +375,39 @@ Selects the 1st person in the results of the <code>find</code> command.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="listing-entered-commands-code-history-code"><a class="link" href="#listing-entered-commands-code-history-code">3.8. Listing entered commands : <code>history</code></a></h3>
+<h3 id="making-list-by-limit-fee-command-code-filterbyfee-code"><a class="link" href="#making-list-by-limit-fee-command-code-filterbyfee-code">3.9. Making list by limit fee command: <code>filterByFee</code></a></h3>
+<div class="paragraph">
+<p>Making list of according to minimal limit fee<br>
+Format: <code>filterByFee [minimal fee to be filtered]</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>filter result: list the person&#8217;s name whose fee is not less than minimal fee.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>If no one is qualified then shows cannot find.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="listing-entered-commands-code-history-code"><a class="link" href="#listing-entered-commands-code-history-code">3.10. Listing entered commands : <code>history</code></a></h3>
 <div class="paragraph">
 <p>Lists all the commands that you have entered in reverse chronological order.<br>
 Format: <code>history</code></p>
@@ -361,7 +428,7 @@ Format: <code>history</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="analyzing-grades-commands-code-grades-code"><a class="link" href="#analyzing-grades-commands-code-grades-code">3.9. Analyzing grades commands : <code>grades</code></a></h3>
+<h3 id="analyzing-grades-commands-code-grades-code"><a class="link" href="#analyzing-grades-commands-code-grades-code">3.11. Analyzing grades commands : <code>grades</code></a></h3>
 <div class="paragraph">
 <p>Analyze the grades of students<br>
 Format: <code>grades ACTION [parameters]</code></p>
@@ -391,9 +458,11 @@ Format: <code>grades ACTION [parameters]</code></p>
 </tr>
 </table>
 </div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>=== Retrieving earnings : <code>earnings</code></p>
 </div>
-<div class="sect2">
-<h3 id="retrieving-earnings-code-earnings-code"><a class="link" href="#retrieving-earnings-code-earnings-code">3.10. Retrieving earnings : <code>earnings</code></a></h3>
 <div class="paragraph">
 <p>Retrieve the total earnings within a range of date in the current year.<br>
 Format: <code>from/DDMM to/DDMM</code></p>
@@ -423,9 +492,9 @@ This input returns the total amount of tuition fees earned from 2 February 2018 
 </li>
 </ul>
 </div>
+<div class="paragraph">
+<p>=== Undoing previous command : <code>undo</code></p>
 </div>
-<div class="sect2">
-<h3 id="undoing-previous-command-code-undo-code"><a class="link" href="#undoing-previous-command-code-undo-code">3.11. Undoing previous command : <code>undo</code></a></h3>
 <div class="paragraph">
 <p>Restores the address book to the state before the previous <em>undoable</em> command was executed.<br>
 Format: <code>undo</code></p>
@@ -468,9 +537,9 @@ The <code>undo</code> command fails as there are no undoable commands executed p
 </li>
 </ul>
 </div>
+<div class="paragraph">
+<p>=== Redoing the previously undone command : <code>redo</code></p>
 </div>
-<div class="sect2">
-<h3 id="redoing-the-previously-undone-command-code-redo-code"><a class="link" href="#redoing-the-previously-undone-command-code-redo-code">3.12. Redoing the previously undone command : <code>redo</code></a></h3>
 <div class="paragraph">
 <p>Reverses the most recent <code>undo</code> command.<br>
 Format: <code>redo</code></p>
@@ -500,48 +569,43 @@ The <code>redo</code> command fails as there are no <code>undo</code> commands e
 </li>
 </ul>
 </div>
+<div class="paragraph">
+<p>=== Clearing all entries : <code>clear</code></p>
 </div>
-<div class="sect2">
-<h3 id="clearing-all-entries-code-clear-code"><a class="link" href="#clearing-all-entries-code-clear-code">3.13. Clearing all entries : <code>clear</code></a></h3>
 <div class="paragraph">
 <p>Clears all entries from the address book.<br>
 Format: <code>clear</code></p>
 </div>
+<div class="paragraph">
+<p>=== Exiting the program : <code>exit</code></p>
 </div>
-<div class="sect2">
-<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.14. Exiting the program : <code>exit</code></a></h3>
 <div class="paragraph">
 <p>Exits the program.<br>
 Format: <code>exit</code></p>
 </div>
+<div class="paragraph">
+<p>=== Saving the data</p>
 </div>
-<div class="sect2">
-<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.15. Saving the data</a></h3>
 <div class="paragraph">
 <p>Address book data are saved in the hard disk automatically after any command that changes the data.<br>
 There is no need to save manually.</p>
 </div>
+<div class="paragraph">
+<p>=== Encrypting data files <code>[coming in v2.0]</code></p>
 </div>
-<div class="sect2">
-<h3 id="encrypting-data-files-code-coming-in-v2-0-code"><a class="link" href="#encrypting-data-files-code-coming-in-v2-0-code">3.16. Encrypting data files <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
 <p><em>{explain how the user can enable/disable data encryption}</em></p>
 </div>
+<div class="paragraph">
+<p>== FAQ</p>
 </div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="faq"><a class="link" href="#faq">4. FAQ</a></h2>
-<div class="sectionbody">
 <div class="paragraph">
 <p><strong>Q</strong>: How do I transfer my data to another Computer?<br>
 <strong>A</strong>: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous Address Book folder.</p>
 </div>
+<div class="paragraph">
+<p>== Command Summary</p>
 </div>
-</div>
-<div class="sect1">
-<h2 id="command-summary"><a class="link" href="#command-summary">5. Command Summary</a></h2>
-<div class="sectionbody">
 <div class="ulist">
 <ul>
 <li>
@@ -588,4 +652,7 @@ e.g.<code>select 2</code></p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-02 16:32:45 UTC</div></div></div></body></html>
+</div>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-03 11:02:40 UTC</div></div></div></body></html>
