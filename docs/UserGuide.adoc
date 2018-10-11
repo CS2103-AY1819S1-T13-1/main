@@ -191,6 +191,23 @@ Format: `filterByFee [minimal fee to be filtered]`
 If no one is qualified then shows cannot find.
 ====
 
+
+
+=== Making list by limit fee command: `filterByGrade`
+
+Making list of according to grade range given by user +
+Format: `filterByGrade [minGrade] [maxGrade]`
+
+****
+* filter result: list the person's name whose grade within the range.
+****
+
+[NOTE]
+====
+If no one is qualified then shows cannot find.
+====
+
+
 === Listing entered commands : `history`
 
 Lists all the commands that you have entered in reverse chronological order. +
