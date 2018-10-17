@@ -47,7 +47,7 @@ e.g. typing *`help`* and pressing kbd:[Enter] will open the help window.
 *Command Format*
 
 * Words in `UPPER_CASE` are the parameters to be supplied by the user e.g. in `add n/NAME`, `NAME` is a parameter which can be used as `add n/John Doe`.
-* Items in square brackets are optional e.g `n/NAME [t/TAG]` can be used as `n/John Doe t/friend` or as `n/John Doe`.
+* Items in square brackets are optional e.g `n/NAME [p/PHONE_NUMBER]` can be used as `n/John Doe p/12345678` or as `n/John Doe`.
 * Items with `…`​ after them can be used multiple times including zero times e.g. `[t/TAG]...` can be used as `{nbsp}` (i.e. 0 times), `t/friend`, `t/friend t/family` etc.
 * Parameters can be in any order e.g. if the command specifies `n/NAME p/PHONE_NUMBER`, `p/PHONE_NUMBER n/NAME` is also acceptable.
 ====
@@ -58,45 +58,42 @@ Format: `help`
 
 === Adding a person: `add`
 
-Adds a person to the address book +
-Format: `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]...`
-
-[TIP]
-A person can have any number of tags (including 0)
+Adds a student to the Tutor Pal +
+Format: `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS el/EDUCATION g/GRADES s/SUBJECT ts/TIME [t/TAG]...`
 
 Examples:
 
-* `add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01`
-* `add n/Betsy Crowe t/friend e/betsycrowe@example.com a/Newgate Prison p/1234567 t/criminal`
+* `add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01 el/jc 2 g/89 s/Math ts/Monday 0800-0900`
+* `add n/Betsy Crowe p/1234567 e/betsycrowe@example.com a/Newgate Prison el/pri 1 g/100 s/Math ts/Tuesday 1000-1200 t/friend`
 
 === Listing all persons : `list`
 
-Shows a list of all persons in the address book. +
+Shows a list of all students in the Tutor Pal. +
 Format: `list`
 
 === Editing a person : `edit`
 
-Edits an existing person in the address book. +
-Format: `edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]...`
+Edits an existing student in the Tutor Pal. +
+Format: `edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [el/EDUCATION] [g/GRADES] [s/SUBJECT] [ts/TIME] [t/TAG]...`
 
 ****
-* Edits the person at the specified `INDEX`. The index refers to the index number shown in the displayed person list. The index *must be a positive integer* 1, 2, 3, ...
+* Edits the student at the specified `INDEX`. The index refers to the index number shown in the displayed student list. The index *must be a positive integer* 1, 2, 3, ...
 * At least one of the optional fields must be provided.
 * Existing values will be updated to the input values.
-* When editing tags, the existing tags of the person will be removed i.e adding of tags is not cumulative.
-* You can remove all the person's tags by typing `t/` without specifying any tags after it.
+* When editing tags, the existing tags of the student will be removed i.e adding of tags is not cumulative.
+* You can remove all the student's tags by typing `t/` without specifying any tags after it.
 ****
 
 Examples:
 
-* `edit 1 p/91234567 e/johndoe@example.com` +
-Edits the phone number and email address of the 1st person to be `91234567` and `johndoe@example.com` respectively.
+* `edit 1 p/91234567 e/johndoe@example.com g/50` +
+Edits the phone number, email address, and grade of the 1st person to be `91234567`, `johndoe@example.com`, and `50` respectively.
 * `edit 2 n/Betsy Crower t/` +
 Edits the name of the 2nd person to be `Betsy Crower` and clears all existing tags.
 
 === Locating persons by name: `find`
 
-Finds persons whose names contain any of the given keywords. +
+Finds students whose names contain any of the given keywords. +
 Format: `find KEYWORD [MORE_KEYWORDS]`
 
 ****
@@ -112,18 +109,18 @@ Examples:
 * `find John` +
 Returns `john` and `John Doe`
 * `find Betsy Tim John` +
-Returns any person having names `Betsy`, `Tim`, or `John`
+Returns any student having names `Betsy`, `Tim`, or `John`
 
 === Locating persons by email address: `find/e`
 
-Finds a person through his/her email address. +
+Finds a student through his/her email address. +
 Format: `find/e EMAIL`
 
 ****
 * The search is case insensitive. e.g `abc@example.com` will match `ABc@example.com`
 * Only the email is searched.
 * Only full words will be matched. e.g. `abc@example` will not match `abcd@example.com`
-* Person matching the email will be returned.
+* Student matching the email will be returned.
 ****
 
 Examples:
@@ -135,12 +132,12 @@ Returns `Tim` whose email address is `tim@example.com`
 
 === Deleting a person : `delete`
 
-Deletes the specified person from the address book. +
+Deletes the specified student from the Tutor Pal. +
 Format: `delete INDEX`
 
 ****
-* Deletes the person at the specified `INDEX`.
-* The index refers to the index number shown in the displayed person list.
+* Deletes the student at the specified `INDEX`.
+* The index refers to the index number shown in the displayed student list.
 * The index *must be a positive integer* 1, 2, 3, ...
 ****
 
@@ -148,19 +145,19 @@ Examples:
 
 * `list` +
 `delete 2` +
-Deletes the 2nd person in the address book.
+Deletes the 2nd student in the address book.
 * `find Betsy` +
 `delete 1` +
-Deletes the 1st person in the results of the `find` command.
+Deletes the 1st student in the results of the `find` command.
 
 === Selecting a person : `select`
 
-Selects the person identified by the index number used in the displayed person list. +
+Selects the student identified by the index number used in the displayed student list. +
 Format: `select INDEX`
 
 ****
-* Selects the person and loads the Google search page the person at the specified `INDEX`.
-* The index refers to the index number shown in the displayed person list.
+* Selects the student and loads the Google search page the student at the specified `INDEX`.
+* The index refers to the index number shown in the displayed student list.
 * The index *must be a positive integer* `1, 2, 3, ...`
 ****
 
@@ -168,10 +165,10 @@ Examples:
 
 * `list` +
 `select 2` +
-Selects the 2nd person in the address book.
+Selects the 2nd student in the Tutor Pal.
 * `find Betsy` +
 `select 1` +
-Selects the 1st person in the results of the `find` command.
+Selects the 1st student in the results of the `find` command.
 
 
 
@@ -183,7 +180,7 @@ Making list of according to minimal limit fee +
 Format: `filterByFee [minimal fee to be filtered]`
 
 ****
-* filter result: list the person's name whose fee is not less than minimal fee.
+* filter result: list the student's name whose fee is not less than minimal fee.
 ****
 
 [NOTE]
