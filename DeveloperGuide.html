@@ -33,9 +33,11 @@
 <li><a href="#find-feature">3.2. Find Feature</a></li>
 <li><a href="#grades-feature">3.3. Grades Feature</a></li>
 <li><a href="#earnings-feature">3.4. Earnings Feature</a></li>
-<li><a href="#proposed-data-encryption">3.5. [Proposed] Data Encryption</a></li>
-<li><a href="#logging">3.6. Logging</a></li>
-<li><a href="#Implementation-Configuration">3.7. Configuration</a></li>
+<li><a href="#time-feature">3.5. Time Feature</a></li>
+<li><a href="#addition-of-tuition-timings-feature">3.6. Addition of Tuition Timings feature</a></li>
+<li><a href="#proposed-data-encryption">3.7. [Proposed] Data Encryption</a></li>
+<li><a href="#logging">3.8. Logging</a></li>
+<li><a href="#Implementation-Configuration">3.9. Configuration</a></li>
 </ul>
 </li>
 <li><a href="#documentation">4. Documentation</a>
@@ -956,12 +958,11 @@ other the ending date.</p>
 </div>
 </div>
 </div>
-<div class="sect3">
-<h4 id="time-feature"><a class="link" href="#time-feature">3.4.4. Time Feature</a></h4>
-
 </div>
+<div class="sect2">
+<h3 id="time-feature"><a class="link" href="#time-feature">3.5. Time Feature</a></h3>
 <div class="sect3">
-<h4 id="current-implementation-5"><a class="link" href="#current-implementation-5">3.4.5. Current Implementation</a></h4>
+<h4 id="current-implementation-5"><a class="link" href="#current-implementation-5">3.5.1. Current Implementation</a></h4>
 <div class="ulist">
 <ul>
 <li>
@@ -980,7 +981,7 @@ other the ending date.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">3.4.6. Design Considerations</a></h4>
+<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">3.5.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-data-structure-to-support-the-time-attribute"><a class="link" href="#aspect-data-structure-to-support-the-time-attribute">Aspect: Data structure to support the time attribute</a></h5>
 <div class="ulist">
@@ -1015,12 +1016,11 @@ other the ending date.</p>
 </div>
 </div>
 </div>
-<div class="sect3">
-<h4 id="addition-of-tuition-timings-feature"><a class="link" href="#addition-of-tuition-timings-feature">3.4.7. Addition of Tuition Timings feature</a></h4>
-
 </div>
+<div class="sect2">
+<h3 id="addition-of-tuition-timings-feature"><a class="link" href="#addition-of-tuition-timings-feature">3.6. Addition of Tuition Timings feature</a></h3>
 <div class="sect3">
-<h4 id="current-implementation-6"><a class="link" href="#current-implementation-6">3.4.8. Current Implementation</a></h4>
+<h4 id="current-implementation-6"><a class="link" href="#current-implementation-6">3.6.1. Current Implementation</a></h4>
 <div class="ulist">
 <ul>
 <li>
@@ -1042,7 +1042,7 @@ other the ending date.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="future-implementation-4"><a class="link" href="#future-implementation-4">3.4.9. Future Implementation</a></h4>
+<h4 id="future-implementation-4"><a class="link" href="#future-implementation-4">3.6.2. Future Implementation</a></h4>
 <div class="ulist">
 <ul>
 <li>
@@ -1056,7 +1056,7 @@ other the ending date.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">3.4.10. Design Considerations</a></h4>
+<h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">3.6.3. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="alternative-1-current-choice-arraylist-s-add-command-is-used-for-the-addition-of-the-time-into-the-time-array-list"><a class="link" href="#alternative-1-current-choice-arraylist-s-add-command-is-used-for-the-addition-of-the-time-into-the-time-array-list">Alternative 1(current choice):** ArrayList&#8217;s add command is used for the addition of the time into the time array list.</a></h5>
 <div class="ulist">
@@ -1086,20 +1086,20 @@ other the ending date.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">3.5. [Proposed] Data Encryption</a></h3>
+<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">3.7. [Proposed] Data Encryption</a></h3>
 <div class="paragraph">
 <p><em>{Explain here how the data encryption feature will be implemented}</em></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">3.6. Logging</a></h3>
+<h3 id="logging"><a class="link" href="#logging">3.8. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.7, &#8220;Configuration&#8221;</a>)</p>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.9, &#8220;Configuration&#8221;</a>)</p>
 </li>
 <li>
 <p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
@@ -1130,7 +1130,7 @@ other the ending date.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.7. Configuration</a></h3>
+<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.9. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g App name, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
@@ -3218,4 +3218,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-17 14:39:53 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-17 15:59:32 UTC</div></div></div></body></html>
