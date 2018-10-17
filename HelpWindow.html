@@ -23,9 +23,18 @@
 <li><a href="#selecting-a-person-code-select-code">3.8. Selecting a person : <code>select</code></a></li>
 <li><a href="#making-list-by-limit-fee-command-code-filterbyfee-code">3.9. Making list by limit fee command: <code>filterByFee</code></a></li>
 <li><a href="#listing-entered-commands-code-history-code">3.10. Listing entered commands : <code>history</code></a></li>
-<li><a href="#analyzing-grades-commands-code-grades-code">3.11. Analyzing grades commands : <code>grades</code></a></li>
+<li><a href="#analyzing-grades-commands-code-coming-in-v2-0-code">3.11. Analyzing grades commands <code>[coming in v2.0]</code></a></li>
+<li><a href="#retrieving-earnings-code-coming-in-v2-0-code">3.12. Retrieving earnings <code>[coming in v2.0]</code></a></li>
+<li><a href="#undoing-previous-command-code-undo-code">3.13. Undoing previous command : <code>undo</code></a></li>
+<li><a href="#redoing-the-previously-undone-command-code-redo-code">3.14. Redoing the previously undone command : <code>redo</code></a></li>
+<li><a href="#clearing-all-entries-code-clear-code">3.15. Clearing all entries : <code>clear</code></a></li>
+<li><a href="#exiting-the-program-code-exit-code">3.16. Exiting the program : <code>exit</code></a></li>
+<li><a href="#saving-the-data">3.17. Saving the data</a></li>
+<li><a href="#encrypting-data-files-code-coming-in-v2-0-code">3.18. Encrypting data files <code>[coming in v2.0]</code></a></li>
 </ul>
 </li>
+<li><a href="#faq">4. FAQ</a></li>
+<li><a href="#command-summary">5. Command Summary</a></li>
 </ul>
 </div>
 </div>
@@ -33,7 +42,7 @@
 <h2 id="introduction"><a class="link" href="#introduction">1. Introduction</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>AddressBook Level 4 (AB4) is for those who <strong>prefer to use a desktop app for managing contacts</strong>. More importantly, AB4 is <strong>optimized for those who prefer to work with a Command Line Interface</strong> (CLI) while still having the benefits of a Graphical User Interface (GUI). If you can type fast, AB4 can get your contact management tasks done faster than traditional GUI apps. Interested? Jump to the <a href="#quick-start">Section 2, &#8220;Quick Start&#8221;</a> to get started. Enjoy!</p>
+<p>TutorPal is for private tutors who <strong>prefer to use a desktop app for managing students information</strong>. More importantly, TutorPal is <strong>optimized for those who prefer to work with a Command Line Interface</strong> (CLI) while still having the benefits of a Graphical User Interface (GUI). TutorPal is a great tool to track students' academic performance and schedule. Jump to the <a href="#quick-start">Section 2, &#8220;Quick Start&#8221;</a> to get started. Enjoy!</p>
 </div>
 </div>
 </div>
@@ -125,7 +134,7 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <h3 id="adding-a-person-code-add-code"><a class="link" href="#adding-a-person-code-add-code">3.2. Adding a person: <code>add</code></a></h3>
 <div class="paragraph">
 <p>Adds a person to the address book<br>
-Format: <code>add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]&#8230;&#8203;</code></p>
+Format: <code>add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS el/EDUCATIONAL_LEVEL g/GRADE [t/TAG]&#8230;&#8203;</code></p>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -286,7 +295,7 @@ Format: <code>find/e EMAIL</code></p>
 Returns <code>John Doe</code> whose email address is <code>John@example.com</code></p>
 </li>
 <li>
-<p><code>find/e <a href="mailto:TIM@EXAmple.Com">TIM@EXAmple.Com</a></code><br>
+<p><code>find/e <a href="mailto:tim@exmple.Com">tim@exmple.Com</a></code><br>
 Returns <code>Tim</code> whose email address is <code>tim@example.com</code></p>
 </li>
 </ul>
@@ -428,7 +437,7 @@ Format: <code>history</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="analyzing-grades-commands-code-grades-code"><a class="link" href="#analyzing-grades-commands-code-grades-code">3.11. Analyzing grades commands : <code>grades</code></a></h3>
+<h3 id="analyzing-grades-commands-code-coming-in-v2-0-code"><a class="link" href="#analyzing-grades-commands-code-coming-in-v2-0-code">3.11. Analyzing grades commands <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
 <p>Analyze the grades of students<br>
 Format: <code>grades ACTION [parameters]</code></p>
@@ -458,11 +467,9 @@ Format: <code>grades ACTION [parameters]</code></p>
 </tr>
 </table>
 </div>
-<div class="exampleblock">
-<div class="content">
-<div class="paragraph">
-<p>=== Retrieving earnings : <code>earnings</code></p>
 </div>
+<div class="sect2">
+<h3 id="retrieving-earnings-code-coming-in-v2-0-code"><a class="link" href="#retrieving-earnings-code-coming-in-v2-0-code">3.12. Retrieving earnings <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
 <p>Retrieve the total earnings within a range of date in the current year.<br>
 Format: <code>from/DDMM to/DDMM</code></p>
@@ -488,13 +495,13 @@ Format: <code>from/DDMM to/DDMM</code></p>
 <ul>
 <li>
 <p><code>earnings from/0204 to/2504</code><br>
-This input returns the total amount of tuition fees earned from 2 February 2018 to 25 April 2018 inclusive.</p>
+This input returns the total amount of tuition fees earned from 2 April 2018 to 25 April 2018 inclusive.</p>
 </li>
 </ul>
 </div>
-<div class="paragraph">
-<p>=== Undoing previous command : <code>undo</code></p>
 </div>
+<div class="sect2">
+<h3 id="undoing-previous-command-code-undo-code"><a class="link" href="#undoing-previous-command-code-undo-code">3.13. Undoing previous command : <code>undo</code></a></h3>
 <div class="paragraph">
 <p>Restores the address book to the state before the previous <em>undoable</em> command was executed.<br>
 Format: <code>undo</code></p>
@@ -537,9 +544,9 @@ The <code>undo</code> command fails as there are no undoable commands executed p
 </li>
 </ul>
 </div>
-<div class="paragraph">
-<p>=== Redoing the previously undone command : <code>redo</code></p>
 </div>
+<div class="sect2">
+<h3 id="redoing-the-previously-undone-command-code-redo-code"><a class="link" href="#redoing-the-previously-undone-command-code-redo-code">3.14. Redoing the previously undone command : <code>redo</code></a></h3>
 <div class="paragraph">
 <p>Reverses the most recent <code>undo</code> command.<br>
 Format: <code>redo</code></p>
@@ -569,48 +576,53 @@ The <code>redo</code> command fails as there are no <code>undo</code> commands e
 </li>
 </ul>
 </div>
-<div class="paragraph">
-<p>=== Clearing all entries : <code>clear</code></p>
 </div>
+<div class="sect2">
+<h3 id="clearing-all-entries-code-clear-code"><a class="link" href="#clearing-all-entries-code-clear-code">3.15. Clearing all entries : <code>clear</code></a></h3>
 <div class="paragraph">
 <p>Clears all entries from the address book.<br>
 Format: <code>clear</code></p>
 </div>
-<div class="paragraph">
-<p>=== Exiting the program : <code>exit</code></p>
 </div>
+<div class="sect2">
+<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.16. Exiting the program : <code>exit</code></a></h3>
 <div class="paragraph">
 <p>Exits the program.<br>
 Format: <code>exit</code></p>
 </div>
-<div class="paragraph">
-<p>=== Saving the data</p>
 </div>
+<div class="sect2">
+<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.17. Saving the data</a></h3>
 <div class="paragraph">
 <p>Address book data are saved in the hard disk automatically after any command that changes the data.<br>
 There is no need to save manually.</p>
 </div>
-<div class="paragraph">
-<p>=== Encrypting data files <code>[coming in v2.0]</code></p>
 </div>
+<div class="sect2">
+<h3 id="encrypting-data-files-code-coming-in-v2-0-code"><a class="link" href="#encrypting-data-files-code-coming-in-v2-0-code">3.18. Encrypting data files <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
 <p><em>{explain how the user can enable/disable data encryption}</em></p>
 </div>
-<div class="paragraph">
-<p>== FAQ</p>
 </div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="faq"><a class="link" href="#faq">4. FAQ</a></h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p><strong>Q</strong>: How do I transfer my data to another Computer?<br>
 <strong>A</strong>: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous Address Book folder.</p>
 </div>
-<div class="paragraph">
-<p>== Command Summary</p>
 </div>
+</div>
+<div class="sect1">
+<h2 id="command-summary"><a class="link" href="#command-summary">5. Command Summary</a></h2>
+<div class="sectionbody">
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Add</strong> <code>add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]&#8230;&#8203;</code><br>
-e.g. <code>add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 t/friend t/colleague</code></p>
+<p><strong>Add</strong> <code>add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS el/EDUCATIONAL_LEVEL g/GRADE [t/TAG]&#8230;&#8203;</code><br>
+e.g. <code>add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 el/JC 1 g/85</code></p>
 </li>
 <li>
 <p><strong>Clear</strong> : <code>clear</code></p>
@@ -628,6 +640,10 @@ e.g. <code>edit 2 n/James Lee e/jameslee@example.com</code></p>
 e.g. <code>find James Jake</code></p>
 </li>
 <li>
+<p><strong>Find by e-mail</strong> : <code>find/e EMAIL</code><br>
+e.g <code>find <a href="mailto:tim@example.com">tim@example.com</a></code></p>
+</li>
+<li>
 <p><strong>List</strong> : <code>list</code></p>
 </li>
 <li>
@@ -638,10 +654,10 @@ e.g. <code>find James Jake</code></p>
 e.g.<code>select 2</code></p>
 </li>
 <li>
-<p><strong>History</strong> : <code>history</code></p>
+<p><strong>filterByFee</strong> : <code>filterByFee FEE</code></p>
 </li>
 <li>
-<p><strong>Earnings</strong> : <code>earnings from/DDMM to/DDMM</code></p>
+<p><strong>History</strong> : <code>history</code></p>
 </li>
 <li>
 <p><strong>Undo</strong> : <code>undo</code></p>
@@ -652,7 +668,4 @@ e.g.<code>select 2</code></p>
 </ul>
 </div>
 </div>
-</div>
-</div>
-</div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-03 11:02:40 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-17 00:18:33 UTC</div></div></div></body></html>
