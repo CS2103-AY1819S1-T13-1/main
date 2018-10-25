@@ -34,10 +34,11 @@
 <li><a href="#grades-feature">3.3. Grades Feature</a></li>
 <li><a href="#earnings-feature">3.4. Earnings Feature</a></li>
 <li><a href="#time-feature">3.5. Time Feature</a></li>
-<li><a href="#addition-of-tuition-timings-feature">3.6. Addition of Tuition Timings feature</a></li>
-<li><a href="#proposed-data-encryption">3.7. [Proposed] Data Encryption</a></li>
-<li><a href="#logging">3.8. Logging</a></li>
-<li><a href="#Implementation-Configuration">3.9. Configuration</a></li>
+<li><a href="#addition-of-tuition-time-feature">3.6. Addition of Tuition Time feature</a></li>
+<li><a href="#deletion-of-tuition-time-feature">3.7. Deletion of Tuition Time feature</a></li>
+<li><a href="#proposed-data-encryption">3.8. [Proposed] Data Encryption</a></li>
+<li><a href="#logging">3.9. Logging</a></li>
+<li><a href="#Implementation-Configuration">3.10. Configuration</a></li>
 </ul>
 </li>
 <li><a href="#documentation">4. Documentation</a>
@@ -77,17 +78,18 @@
 <li><a href="#user-stories">Appendix C: User Stories</a></li>
 <li><a href="#use-cases">Appendix D: Use Cases</a>
 <ul class="sectlevel2">
-<li><a href="#use-case-adding-a-student">D.1. Use case: Adding a student</a></li>
-<li><a href="#use-case-editing-a-student">D.2. Use case: Editing a student</a></li>
-<li><a href="#use-case-filter-by-grade">D.3. Use case: Filter by grade</a></li>
-<li><a href="#use-case-filter-by-fee">D.4. Use case: Filter by fee</a></li>
-<li><a href="#use-case-find-students-list-of-the-given-education">D.5. Use case: Find students list of the given Education</a></li>
-<li><a href="#use-case-filter-by-timeslot">D.6. Use case: Filter by Timeslot</a></li>
-<li><a href="#use-case-edit-time">D.7. Use case: Edit time</a></li>
-<li><a href="#use-case-calculate-total-earnings">D.8. Use case: Calculate total earnings</a></li>
-<li><a href="#use-case-find-information-of-students">D.9. Use case: Find information of students</a></li>
-<li><a href="#use-case-sorting-students-by-grades">D.10. Use case: Sorting students by grades</a></li>
-<li><a href="#use-case-listing-grades-of-a-student">D.11. Use case: Listing grades of a student</a></li>
+<li><a href="#use-case-adding-the-tuition-time-of-a-student">D.1. Use case: Adding the tuition time of a student</a></li>
+<li><a href="#use-case-deleting-the-tuition-time-of-a-student">D.2. Use case: Deleting the tuition time of a student</a></li>
+<li><a href="#use-case-editing-a-student">D.3. Use case: Editing a student</a></li>
+<li><a href="#use-case-filter-by-grade">D.4. Use case: Filter by grade</a></li>
+<li><a href="#use-case-filter-by-fee">D.5. Use case: Filter by fee</a></li>
+<li><a href="#use-case-find-students-list-of-the-given-education">D.6. Use case: Find students list of the given Education</a></li>
+<li><a href="#use-case-filter-by-timeslot">D.7. Use case: Filter by Timeslot</a></li>
+<li><a href="#use-case-edit-time">D.8. Use case: Edit time</a></li>
+<li><a href="#use-case-calculate-total-earnings">D.9. Use case: Calculate total earnings</a></li>
+<li><a href="#use-case-find-information-of-students">D.10. Use case: Find information of students</a></li>
+<li><a href="#use-case-sorting-students-by-grades">D.11. Use case: Sorting students by grades</a></li>
+<li><a href="#use-case-listing-grades-of-a-student">D.12. Use case: Listing grades of a student</a></li>
 </ul>
 </li>
 <li><a href="#non-functional-requirements">Appendix E: Non Functional Requirements</a></li>
@@ -1032,13 +1034,13 @@ other the ending date.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="addition-of-tuition-timings-feature"><a class="link" href="#addition-of-tuition-timings-feature">3.6. Addition of Tuition Timings feature</a></h3>
+<h3 id="addition-of-tuition-time-feature"><a class="link" href="#addition-of-tuition-time-feature">3.6. Addition of Tuition Time feature</a></h3>
 <div class="sect3">
 <h4 id="current-implementation-6"><a class="link" href="#current-implementation-6">3.6.1. Current Implementation</a></h4>
 <div class="ulist">
 <ul>
 <li>
-<p>Since the time attribute is an array list, we created a new command to add tutorial timings for a student.</p>
+<p>Since the time attribute is an array list, we created a new command to add tuition timings of a student.</p>
 </li>
 <li>
 <p>It takes in 2 parameters, name of the student and the tuition timing to be added.</p>
@@ -1050,9 +1052,23 @@ other the ending date.</p>
 <p>Tuition timing should consists of the day, start and end time of the tuition.</p>
 </li>
 <li>
-<p>When the command is called, a time object of the tuition timings will be created. After that, it will search through the address book to see if the input name of the student exists. If the student is found, the tuition timing will be added into his time array list, otherwise, an error message will be shown.</p>
+<p>The start time of the tuition must be earlier than the end time of the tuition.</p>
+</li>
+<li>
+<p>When the command is called, a time object of the tuition timings will be created. It will then search through the address book to see if the input name of the student exists. If the student is found, the tuition timing will be added into his time array list, otherwise, an error message, depending on the type of error, will be shown.</p>
+</li>
+<li>
+<p>Furthermore, after the time object is created, it will also check if the there are any clashes in the tuition timings already in the address book.</p>
 </li>
 </ul>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram shows how the addtime operation works:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/AddTimeSequenceDiagram.png" alt="AddTimeSequenceDiagram" width="800">
+</div>
 </div>
 </div>
 <div class="sect3">
@@ -1100,20 +1116,56 @@ other the ending date.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">3.7. [Proposed] Data Encryption</a></h3>
+<h3 id="deletion-of-tuition-time-feature"><a class="link" href="#deletion-of-tuition-time-feature">3.7. Deletion of Tuition Time feature</a></h3>
+<div class="sect3">
+<h4 id="current-implementation-7"><a class="link" href="#current-implementation-7">3.7.1. Current Implementation</a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p>Since the time attribute is an array list, we create a new command to delete the tuition timings of a student.</p>
+</li>
+<li>
+<p>Name of the student will be in string, while tuition timing will be in time.</p>
+</li>
+<li>
+<p>Tuition timing should consists of the day, start and end time of the tuition.</p>
+</li>
+<li>
+<p>When the command is called, a time object of the tuition timings will be created. It will then search through the address book to see if the input name of the student exists and he contains the tuition time to be deleted. If the student is found and he indeed had been allocated the tuition time, the tuition time will be deleted, otherwise, an error message, depending on the type of error, will be shown.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="future-implementation-5"><a class="link" href="#future-implementation-5">3.7.2. Future Implementation</a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p>Currently, the input name has the to the target student&#8217;s exact spelling. In cases where a student name is very long, this command may cause some inconvenience for the user if he does not remember the exact spellings of the target student&#8217;s name.</p>
+</li>
+<li>
+<p>In the future, the input name do not need to be the target student&#8217;s full name
+(e.g <code>John</code> instead of <code>John Doe</code>). If multiple students' names containing that input name are found, system will display all these students and user can choose which is the target student.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">3.8. [Proposed] Data Encryption</a></h3>
 <div class="paragraph">
 <p><em>{Explain here how the data encryption feature will be implemented}</em></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">3.8. Logging</a></h3>
+<h3 id="logging"><a class="link" href="#logging">3.9. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.9, &#8220;Configuration&#8221;</a>)</p>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.10, &#8220;Configuration&#8221;</a>)</p>
 </li>
 <li>
 <p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
@@ -1144,7 +1196,7 @@ other the ending date.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.9. Configuration</a></h3>
+<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.10. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g App name, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
@@ -2481,17 +2533,14 @@ for <code>RemarkCommandParser</code>.</p>
 </ul>
 </div>
 <div class="sect2">
-<h3 id="use-case-adding-a-student"><a class="link" href="#use-case-adding-a-student">D.1. Use case: Adding a student</a></h3>
+<h3 id="use-case-adding-the-tuition-time-of-a-student"><a class="link" href="#use-case-adding-the-tuition-time-of-a-student">D.1. Use case: Adding the tuition time of a student</a></h3>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>User enters the details of the student</p>
-</li>
-<li>
-<p>System displays the details entered for confirmation</p>
+<p>User enters name of the student and the tuition time to be added</p>
 </li>
 <li>
 <p>System displays successful message</p>
@@ -2507,41 +2556,31 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>1a. User did not specify all the attributes of a student.</p>
+<p>1a. Input name is not found in the address book.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>1a1. Dummy variables are created for missing attributes.</p>
+<p>1a1. System displays the invalid student message.</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p>1a*. Phone number of student already exist in the address book.</p>
+<p>1a*. There is a clash in the tuition time to be added with the ones already in the address book.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>1a*1. System display student already exists in address book message.</p>
+<p>1a*1. System displays tuition timing clash message.</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p>2a. User chooses to cancel the addition.</p>
+<p>1a**. An invalid tuition time is entered</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>2a1. System displays command cancelled message.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>3a. The student name entered already exists.</p>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>3a1. System asks user whether wants to overwrite existing information or create a new student.</p>
+<p>1a**1. System displays invalid tuition time message.</p>
 </li>
 </ul>
 </div>
@@ -2550,7 +2589,53 @@ for <code>RemarkCommandParser</code>.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="use-case-editing-a-student"><a class="link" href="#use-case-editing-a-student">D.2. Use case: Editing a student</a></h3>
+<h3 id="use-case-deleting-the-tuition-time-of-a-student"><a class="link" href="#use-case-deleting-the-tuition-time-of-a-student">D.2. Use case: Deleting the tuition time of a student</a></h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User enters name of the student and the tuition time to be deleted</p>
+</li>
+<li>
+<p>System displays successful message</p>
+<div class="paragraph">
+<p>Use case ends</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a. Input name is not found in the address book.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a1. System displays the invalid student message.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>1a*. The student does not have the tuition time allocated to him.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a*1. System displays tuition time not found message.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="use-case-editing-a-student"><a class="link" href="#use-case-editing-a-student">D.3. Use case: Editing a student</a></h3>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
@@ -2612,7 +2697,7 @@ for <code>RemarkCommandParser</code>.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="use-case-filter-by-grade"><a class="link" href="#use-case-filter-by-grade">D.3. Use case: Filter by grade</a></h3>
+<h3 id="use-case-filter-by-grade"><a class="link" href="#use-case-filter-by-grade">D.4. Use case: Filter by grade</a></h3>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
@@ -2654,7 +2739,7 @@ for <code>RemarkCommandParser</code>.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="use-case-filter-by-fee"><a class="link" href="#use-case-filter-by-fee">D.4. Use case: Filter by fee</a></h3>
+<h3 id="use-case-filter-by-fee"><a class="link" href="#use-case-filter-by-fee">D.5. Use case: Filter by fee</a></h3>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
@@ -2696,7 +2781,7 @@ for <code>RemarkCommandParser</code>.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="use-case-find-students-list-of-the-given-education"><a class="link" href="#use-case-find-students-list-of-the-given-education">D.5. Use case: Find students list of the given Education</a></h3>
+<h3 id="use-case-find-students-list-of-the-given-education"><a class="link" href="#use-case-find-students-list-of-the-given-education">D.6. Use case: Find students list of the given Education</a></h3>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
@@ -2738,7 +2823,7 @@ for <code>RemarkCommandParser</code>.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="use-case-filter-by-timeslot"><a class="link" href="#use-case-filter-by-timeslot">D.6. Use case: Filter by Timeslot</a></h3>
+<h3 id="use-case-filter-by-timeslot"><a class="link" href="#use-case-filter-by-timeslot">D.7. Use case: Filter by Timeslot</a></h3>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
@@ -2780,7 +2865,7 @@ for <code>RemarkCommandParser</code>.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="use-case-edit-time"><a class="link" href="#use-case-edit-time">D.7. Use case: Edit time</a></h3>
+<h3 id="use-case-edit-time"><a class="link" href="#use-case-edit-time">D.8. Use case: Edit time</a></h3>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
@@ -2822,7 +2907,7 @@ for <code>RemarkCommandParser</code>.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="use-case-calculate-total-earnings"><a class="link" href="#use-case-calculate-total-earnings">D.8. Use case: Calculate total earnings</a></h3>
+<h3 id="use-case-calculate-total-earnings"><a class="link" href="#use-case-calculate-total-earnings">D.9. Use case: Calculate total earnings</a></h3>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
@@ -2864,7 +2949,7 @@ for <code>RemarkCommandParser</code>.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="use-case-find-information-of-students"><a class="link" href="#use-case-find-information-of-students">D.9. Use case: Find information of students</a></h3>
+<h3 id="use-case-find-information-of-students"><a class="link" href="#use-case-find-information-of-students">D.10. Use case: Find information of students</a></h3>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
@@ -2919,7 +3004,7 @@ for <code>RemarkCommandParser</code>.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="use-case-sorting-students-by-grades"><a class="link" href="#use-case-sorting-students-by-grades">D.10. Use case: Sorting students by grades</a></h3>
+<h3 id="use-case-sorting-students-by-grades"><a class="link" href="#use-case-sorting-students-by-grades">D.11. Use case: Sorting students by grades</a></h3>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
@@ -2981,7 +3066,7 @@ for <code>RemarkCommandParser</code>.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="use-case-listing-grades-of-a-student"><a class="link" href="#use-case-listing-grades-of-a-student">D.11. Use case: Listing grades of a student</a></h3>
+<h3 id="use-case-listing-grades-of-a-student"><a class="link" href="#use-case-listing-grades-of-a-student">D.12. Use case: Listing grades of a student</a></h3>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
@@ -3232,4 +3317,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-25 00:08:42 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-25 02:17:09 UTC</div></div></div></body></html>
