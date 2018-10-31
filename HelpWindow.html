@@ -19,7 +19,7 @@
 <li><a href="#editing-a-person-code-edit-code">3.4. Editing a person : <code>edit</code></a></li>
 <li><a href="#locating-persons-by-name-code-find-code">3.5. Locating persons by name: <code>find</code></a></li>
 <li><a href="#locating-persons-by-email-address-code-find-e-code">3.6. Locating persons by email address: <code>find/e</code></a></li>
-<li><a href="#locating-persons-by-email-address-code-find-p-code">3.7. Locating persons by email address: <code>find/p</code></a></li>
+<li><a href="#locating-persons-by-phone-number-code-find-p-code">3.7. Locating persons by phone number: <code>find/p</code></a></li>
 <li><a href="#deleting-a-person-code-delete-code">3.8. Deleting a person : <code>delete</code></a></li>
 <li><a href="#selecting-a-person-code-select-code">3.9. Selecting a person : <code>select</code></a></li>
 <li><a href="#making-list-by-limit-fee-command-code-filterbyfee-code">3.10. Making list by limit fee command: <code>filterByFee</code></a></li>
@@ -29,7 +29,7 @@
 <li><a href="#edit-certain-class-time-of-certain-student-code-edittime-code">3.14. Edit certain class time of certain student: <code>EditTime</code></a></li>
 <li><a href="#listing-entered-commands-code-history-code">3.15. Listing entered commands : <code>history</code></a></li>
 <li><a href="#analyzing-grades-commands-code-coming-in-v2-0-code">3.16. Analyzing grades commands <code>[coming in v2.0]</code></a></li>
-<li><a href="#retrieving-earnings-code-coming-in-v2-0-code">3.17. Retrieving earnings <code>[coming in v2.0]</code></a></li>
+<li><a href="#retrieving-earnings">3.17. Retrieving earnings</a></li>
 <li><a href="#undoing-previous-command-code-undo-code">3.18. Undoing previous command : <code>undo</code></a></li>
 <li><a href="#redoing-the-previously-undone-command-code-redo-code">3.19. Redoing the previously undone command : <code>redo</code></a></li>
 <li><a href="#clearing-all-entries-code-clear-code">3.20. Clearing all entries : <code>clear</code></a></li>
@@ -87,7 +87,7 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <p><strong><code>list</code></strong> : lists all contacts</p>
 </li>
 <li>
-<p><strong><code>add</code></strong><code>n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01</code> : adds a contact named <code>John Doe</code> to the Address Book.</p>
+<p><strong><code>add</code></strong><code>n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01 el/Primary 1 g/MidTerms 99</code> : adds a contact named <code>John Doe</code> to the Address Book.</p>
 </li>
 <li>
 <p><strong><code>delete</code></strong><code>3</code> : deletes the 3rd contact shown in the current list</p>
@@ -161,10 +161,7 @@ A person can have any number of tags (including 0)
 <div class="ulist">
 <ul>
 <li>
-<p><code>add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01</code></p>
-</li>
-<li>
-<p><code>add n/Betsy Crowe t/friend e/betsycrowe@example.com a/Newgate Prison p/1234567 t/criminal</code></p>
+<p><code>add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01 el/JC 1 g/PrelimsExam 25</code></p>
 </li>
 </ul>
 </div>
@@ -309,7 +306,7 @@ Returns <code>Tim</code> whose email address is <code>tim@example.com</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="locating-persons-by-email-address-code-find-p-code"><a class="link" href="#locating-persons-by-email-address-code-find-p-code">3.7. Locating persons by email address: <code>find/p</code></a></h3>
+<h3 id="locating-persons-by-phone-number-code-find-p-code"><a class="link" href="#locating-persons-by-phone-number-code-find-p-code">3.7. Locating persons by phone number: <code>find/p</code></a></h3>
 <div class="paragraph">
 <p>Finds a person through his/her phone number.<br>
 Format: <code>find/p PHONE_NUMBER</code></p>
@@ -442,6 +439,18 @@ Format: <code>filterByFee [minimal fee to be filtered]</code></p>
 </div>
 </div>
 </div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>filterByFee 24</code>
+returns a list of students whose tuition fee is more than
+or equals to $24/hour.</p>
+</li>
+</ul>
+</div>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -450,7 +459,8 @@ Format: <code>filterByFee [minimal fee to be filtered]</code></p>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>If no one is qualified then shows cannot find.</p>
+<p>If no students qualify the filter criteria, an empty list is returned along with
+a system message which says that no such students can be found.</p>
 </div>
 </td>
 </tr>
@@ -482,7 +492,8 @@ Format: <code>filterByEducation [education level]</code></p>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>If no one is qualified then shows cannot find.</p>
+<p>If no students qualify the filter criteria, an empty list is returned along with
+a system message which says that no such students can be found.</p>
 </div>
 </td>
 </tr>
@@ -492,15 +503,16 @@ Format: <code>filterByEducation [education level]</code></p>
 <div class="sect2">
 <h3 id="making-list-by-limit-fee-command-code-filterbygrade-code"><a class="link" href="#making-list-by-limit-fee-command-code-filterbygrade-code">3.12. Making list by limit fee command: <code>filterByGrade</code></a></h3>
 <div class="paragraph">
-<p>Making list of of students whose grades between minimal limit grade and maximal limit grade<br>
-Format: <code>filterByGrade [minimal] [maximal]</code></p>
+<p>Returns a list of of students whose grades fall between the minimum and maximum grade<br>
+Format: <code>filterByGrade [minimum grade] [maximum grade]</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
 <div class="ulist">
 <ul>
 <li>
-<p>filter result: list the person&#8217;s name whose grade is between the given range.</p>
+<p>filter result: A list containing students with grades which fall between the minimum and
+maximum grade.</p>
 </li>
 </ul>
 </div>
@@ -514,7 +526,8 @@ Format: <code>filterByGrade [minimal] [maximal]</code></p>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>If no one is qualified then shows cannot find.</p>
+<p>If no students qualify the filter criteria, an empty list is returned along with
+a system message which says that no such students can be found.</p>
 </div>
 </td>
 </tr>
@@ -532,7 +545,7 @@ Format: <code>filterByTime [given TimeSlot]</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p>filter result: list the person&#8217;s name who takes class at given time.</p>
+<p>filter result: A student who has a lesson at the given timeslot</p>
 </li>
 </ul>
 </div>
@@ -546,7 +559,8 @@ Format: <code>filterByTime [given TimeSlot]</code></p>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>If no one is qualified then shows cannot find.</p>
+<p>If no students qualify the filter criteria, an empty list is returned along with
+a system message which says that no such students can be found.</p>
 </div>
 </td>
 </tr>
@@ -557,7 +571,7 @@ Format: <code>filterByTime [given TimeSlot]</code></p>
 <h3 id="edit-certain-class-time-of-certain-student-code-edittime-code"><a class="link" href="#edit-certain-class-time-of-certain-student-code-edittime-code">3.14. Edit certain class time of certain student: <code>EditTime</code></a></h3>
 <div class="paragraph">
 <p>Edit certain class time of certain student<br>
-Format: <code>EditTime [student name] [ole time] [new time]</code></p>
+Format: <code>EditTime [student name] [old timeslot] [new timeslot]</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -639,10 +653,10 @@ Format: <code>grades ACTION [parameters]</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="retrieving-earnings-code-coming-in-v2-0-code"><a class="link" href="#retrieving-earnings-code-coming-in-v2-0-code">3.17. Retrieving earnings <code>[coming in v2.0]</code></a></h3>
+<h3 id="retrieving-earnings"><a class="link" href="#retrieving-earnings">3.17. Retrieving earnings</a></h3>
 <div class="paragraph">
 <p>Retrieve the total earnings within a range of date in the current year.<br>
-Format: <code>from/DDMM to/DDMM</code></p>
+Format: <code>earnings START_DATE END_DATE</code></p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -652,7 +666,7 @@ Format: <code>from/DDMM to/DDMM</code></p>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>DDMM is the format of date to be entered</p>
+<p>DDMM is the format of date to be entered. The year will be current year by default.</p>
 </div>
 </td>
 </tr>
@@ -664,8 +678,8 @@ Format: <code>from/DDMM to/DDMM</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>earnings from/0204 to/2504</code><br>
-This command returns the total amount of tuition fees earned from 2 April 2018 to 25 April 2018 inclusive.</p>
+<p><code>earnings 0204 2506</code><br>
+This command returns the total amount of tuition fees earned between 2 April 2018 to 25 June 2018 inclusive.</p>
 </li>
 </ul>
 </div>
@@ -774,9 +788,15 @@ Format: <code>addtime [n/NAME] [ts/TIME]</code></p>
 </ul>
 </div>
 <div class="paragraph">
-<p>Example:
-* <code>addtime n/John Doe ts/mon 1300 1500</code><br>
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>addtime n/John Doe ts/mon 1300 1500</code><br>
 Adds the tuition timing for John Doe that is on Monday which starts at 1300hour and ends at 1500hour.</p>
+</li>
+</ul>
 </div>
 </div>
 <div class="sect2">
@@ -799,9 +819,15 @@ Format: <code>deletetime [n/NAME] [ts/TIME]</code></p>
 </ul>
 </div>
 <div class="paragraph">
-<p>Example:
-* <code>deletetime n/John Doe ts/mon 1300 1500</code><br>
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>deletetime n/John Doe ts/mon 1300 1500</code><br>
 Deletes the tuition timing for John Doe that is on Monday which starts at 1300hour and ends at 1500hour.</p>
+</li>
+</ul>
 </div>
 </div>
 <div class="sect2">
@@ -842,7 +868,7 @@ There is no need to save manually.</p>
 <ul>
 <li>
 <p><strong>Add</strong> : <code>add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS el/EDUCATIONAL_LEVEL g/GRADE [t/TAG]</code><br>
-e.g. <code>add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 el/JC 1 g/85</code></p>
+e.g. <code>add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 el/JC 1 g/FinalExam 85</code></p>
 </li>
 <li>
 <p><strong>AddTime</strong> : <code>addtime n/NAME ts/TIME</code><br>
@@ -858,9 +884,6 @@ e.g. <code>delete 3</code></p>
 <li>
 <p><strong>DeleteTime</strong> : <code>deletetime n/NAME ts/TIME</code><br>
 e.g. <code>deletetime n/James Ho ts/mon 1300 1500</code></p>
-</li>
-<li>
-<p>*</p>
 </li>
 <li>
 <p><strong>Edit</strong> : <code>edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [t/TAG]&#8230;&#8203;</code><br>
@@ -888,6 +911,9 @@ e.g.<code>select 2</code></p>
 <p><strong>filterByFee</strong> : <code>filterByFee FEE</code></p>
 </li>
 <li>
+<p><strong>Earnings</strong> : <code>earnings START_DATE END_DATE</code></p>
+</li>
+<li>
 <p><strong>History</strong> : <code>history</code></p>
 </li>
 <li>
@@ -899,4 +925,4 @@ e.g.<code>select 2</code></p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-30 05:47:33 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-31 05:09:00 UTC</div></div></div></body></html>
