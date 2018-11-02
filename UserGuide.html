@@ -270,8 +270,8 @@ Returns <code>john</code> and <code>John Doe</code></p>
 Returns <code>Charlotte Oliveiro</code></p>
 </li>
 <li>
-<p><code>find Betsy Tim John</code><br>
-Returns any person having names <code>Betsy</code>, <code>Tim</code>, or <code>John</code></p>
+<p><code>find David Roy John</code><br>
+Returns any person having names <code>David</code>, <code>Roy</code>, or <code>John</code></p>
 </li>
 </ul>
 </div>
@@ -287,22 +287,31 @@ Format: <code>find/a KEYWORD [MORE_KEYWORDS]</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p>The search is case insensitive. e.g <code>serAngoOn GaRden</code> will match <code>Serangoon Garden</code></p>
+<p>The search will search for persons whose addresses contain all the keywords.<br>
+e.g. <code>Clementi</code> will find person <code>John Doe</code> whose address is <code>311, Clementi Ave 2, #02-25</code></p>
 </li>
 <li>
-<p>The search allows fuzzy matching when the keywords do not contain numbers and each length is greater than 3. e.g. <code>srangon</code> will match <code>Blk 436 Serangoon Garden Street 26</code></p>
+<p>If the keywords match more than one person, all of these person will be returned.<br>
+e.g. <code>Serangoon</code> will return the persons whose addresses contain <code>Serangoon</code>, who are <code>Bernice Yu</code> and <code>David Li</code></p>
 </li>
 <li>
-<p>If the keywords contain numbers or any of the keywords has length smaller or equal to 3, do not support fuzzy matching. e.g. <code>bl serangoon</code> does not match <code>Blk 436 Serangoon Garden Street 26</code></p>
+<p>The search is case insensitive.<br>
+e.g <code>cLeMenTi</code> is same as <code>Clementi</code>, and <code>cLeMenTi</code> can also be used to find person <code>John Doe</code> whose address is <code>311, Clementi Ave 2, #02-25</code></p>
 </li>
 <li>
-<p>The order of the keywords does not matter. e.g. <code>Street 26 garden serangoon 436 blk</code> will match <code>Blk 436 Serangoon Garden Street 26</code></p>
+<p>The search allows fuzzy matching on long keywords (long keyword means the keyword whose length is greater than 3).<br>
+e.g. <code>clenti</code> will be fuzzy matched with <code>Clementi</code>, and will find the person <code>John Doe</code> whose address is <code>311, Clementi Ave 2, #02-25</code></p>
+</li>
+<li>
+<p>The search will not support fuzzy matching when the keywords are too short (&#8656; 3) or contain numbers.<br>
+e.g. <code>Clementi Avo</code> does not match <code>Clementi Ave</code> because keyword <code>Avo</code> is short and will not be allowed to use fuzzy matching, therefore, no person will be found</p>
+</li>
+<li>
+<p>The order of the keywords does not matter.<br>
+e.g. <code>Ave Clementi 2, 311, #02-25</code> will match <code>311, Clementi Ave 2, #02-25</code>, and will find the person <code>John Doe</code> whose address is <code>311, Clementi Ave 2, #02-25</code></p>
 </li>
 <li>
 <p>Only the address is searched.</p>
-</li>
-<li>
-<p>Persons matching all keyword will be returned (i.e. <code>AND</code> search). e.g. <code>serangoon</code> will return the persons whose addresses contain <code>serangoon</code>, who are <code>Bernice Yu</code> and <code>David Li</code></p>
 </li>
 </ul>
 </div>
@@ -314,16 +323,24 @@ Format: <code>find/a KEYWORD [MORE_KEYWORDS]</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>find/a Blk 30 Lorong 3 seRangoon gArdens, #07-18</code><br>
-Returns <code>Bernice Yu</code></p>
+<p><code>find/a B311, Clementi Ave 2, #02-25</code><br>
+Returns <code>John Doe</code></p>
+</li>
+<li>
+<p><code>find/a B311, CLEMENTI Ave 2, #02-25</code><br>
+Returns <code>John Doe</code> (case insensitive)</p>
+</li>
+<li>
+<p><code>find/a #02-25, Ave 2 Clementi, B311</code><br>
+Returns <code>John Doe</code> (the order of the keywords does not matter)</p>
 </li>
 <li>
 <p><code>find/a serangoon</code><br>
-Returns any person containing the keyword <code>Serangoon</code>, i.e. <code>Bernice Yu</code> and <code>David Li</code></p>
+Returns person whose addresses containing the keyword <code>Serangoon</code>, i.e. <code>Bernice Yu</code> and <code>David Li</code></p>
 </li>
 <li>
 <p><code>find/a srangon</code><br>
-Returns any person containing the keyword <code>Serangoon</code>, i.e. <code>Bernice Yu</code> and <code>David Li</code></p>
+Returns persons whose addresses containing the keyword <code>Serangoon</code>, i.e. <code>Bernice Yu</code> and <code>David Li</code> (fuzzy matching)</p>
 </li>
 </ul>
 </div>
@@ -339,10 +356,12 @@ Format: <code>find/e EMAIL</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p>The search is case insensitive. e.g <code>LIDaVid@example.com</code> will match <code>lidavid@example.com</code></p>
+<p>The search is case insensitive.<br>
+e.g <code>LIDaVid@example.com</code> will match <code>lidavid@example.com</code>, and will find person <code>David Li</code> whose email is <code>lidavid@example.com</code></p>
 </li>
 <li>
-<p>The search allows fuzzy matching (with Levenshtein Distance &lt; 4). e.g. <code>LIDavd@example.com</code> will mathch <code>lidavid@example.com</code></p>
+<p>The search allows fuzzy matching (with Levenshtein Distance &lt; 4).<br>
+e.g.<code>lidavd@exmple.com</code> will match <code>lidavid@example.com</code>, and will find person <code>David Li</code> whose email is <code>lidavid@example.com</code></p>
 </li>
 <li>
 <p>Only the email is searched.</p>
@@ -365,7 +384,11 @@ Returns <code>John Doe</code> whose email address is <code>John@example.com</cod
 </li>
 <li>
 <p><code>find/e <a href="mailto:LIDavd@example.com">LIDavd@example.com</a></code><br>
-Returns <code>David Li</code> whose email address is <code>lidavid@example.com</code></p>
+Returns <code>David Li</code> whose email address is <code>lidavid@example.com</code> (case insensitive)</p>
+</li>
+<li>
+<p><code>find/e <a href="mailto:lidavd@exmple.com">lidavd@exmple.com</a></code><br>
+Returns <code>David Li</code> whose email address is <code>lidavid@example.com</code> (fuzzy matching)</p>
 </li>
 </ul>
 </div>
@@ -384,7 +407,8 @@ Format: <code>find/p PHONE_NUMBER</code></p>
 <p>Only the phone number is searched.</p>
 </li>
 <li>
-<p>The search allows fuzzy matching (with Levenshtein Distance &lt; 3). e.g. <code>123456</code> will match <code>12345678</code>, <code>12435678</code> will match <code>12345678</code></p>
+<p>The search allows fuzzy matching (with Levenshtein Distance &lt; 3).<br>
+e.g. <code>123456</code> will match <code>12345678</code>, <code>12435678</code> will match <code>12345678</code></p>
 </li>
 <li>
 <p>Person matching the phone number will be returned.</p>
@@ -404,11 +428,11 @@ Returns <code>John Doe</code> whose phone number is <code>98765432</code></p>
 </li>
 <li>
 <p><code>find/p 9876543</code><br>
-Returns <code>John Doe</code> whose phone number is <code>98765432</code></p>
+Returns <code>John Doe</code> whose phone number is <code>98765432</code> (fuzzy matching)</p>
 </li>
 <li>
 <p><code>find/p 98765433</code><br>
-Returns <code>John Doe</code> whose phone number is <code>98765432</code></p>
+Returns <code>John Doe</code> whose phone number is <code>98765432</code> (fuzzy matching)</p>
 </li>
 </ul>
 </div>
@@ -1075,4 +1099,4 @@ e.g.<code>select 2</code></p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-02 08:05:14 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-02 10:09:21 UTC</div></div></div></body></html>
