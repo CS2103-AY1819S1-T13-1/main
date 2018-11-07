@@ -3,7 +3,7 @@
 <link rel="stylesheet" href="stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="header"><h1>Tutor Pal - User Guide</h1></div><div id="content"><div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>By: <code>Team SE-EDU</code>      Since: <code>Jun 2016</code>      Licence: <code>MIT</code></p>
+<p>By: <code>CS2103-AY1819S1-T13-1</code>      Since: <code>Aug 2018</code>      Licence: <code>MIT</code></p>
 </div>
 </div>
 <div id="toc" class="toc">
@@ -11,41 +11,7 @@
 <ul class="sectlevel1">
 <li><a href="#introduction">1. Introduction</a></li>
 <li><a href="#quick-start">2. Quick Start</a></li>
-<li><a href="#Features">3. Features</a>
-<ul class="sectlevel2">
-<li><a href="#viewing-help-code-help-code">3.1. Viewing help : <code>help</code></a></li>
-<li><a href="#adding-a-person-code-add-code">3.2. Adding a person: <code>add</code></a></li>
-<li><a href="#listing-all-persons-code-list-code">3.3. Listing all persons : <code>list</code></a></li>
-<li><a href="#editing-a-person-code-edit-code">3.4. Editing a person : <code>edit</code></a></li>
-<li><a href="#locating-persons-by-name-code-find-code">3.5. Locating persons by name: <code>find</code></a></li>
-<li><a href="#locating-persons-by-address-code-find-a-code">3.6. Locating persons by address: <code>find/a</code></a></li>
-<li><a href="#locating-persons-by-email-address-code-find-e-code">3.7. Locating persons by email address: <code>find/e</code></a></li>
-<li><a href="#locating-persons-by-phone-number-code-find-p-code">3.8. Locating persons by phone number: <code>find/p</code></a></li>
-<li><a href="#deleting-a-person-code-delete-code">3.9. Deleting a person : <code>delete</code></a></li>
-<li><a href="#selecting-a-person-code-select-code">3.10. Selecting a person : <code>select</code></a></li>
-<li><a href="#making-list-by-limit-fee-command-code-filterbyfee-code">3.11. Making list by limit fee command: <code>filterByFee</code></a></li>
-<li><a href="#making-list-by-limit-fee-command-code-filterbyeducation-code">3.12. Making list by limit fee command: <code>filterByEducation</code></a></li>
-<li><a href="#making-list-by-limit-fee-command-code-filterbygrade-code">3.13. Making list by limit fee command: <code>filterByGrade</code></a></li>
-<li><a href="#making-list-by-limit-fee-command-code-filterbytime-code">3.14. Making list by limit fee command: <code>filterByTime</code></a></li>
-<li><a href="#edit-certain-class-time-of-certain-student-code-exchangetime-code">3.15. Edit certain class time of certain student: <code>ExchangeTime</code></a></li>
-<li><a href="#edit-certain-class-time-of-certain-student-code-edittime-code">3.16. Edit certain class time of certain student: <code>EditTime</code></a></li>
-<li><a href="#give-suggestions-to-students-code-suggestion-code">3.17. Give Suggestions to students: <code>Suggestion</code></a></li>
-<li><a href="#listing-entered-commands-code-history-code">3.18. Listing entered commands : <code>history</code></a></li>
-<li><a href="#grade">3.19. Grades attribute</a></li>
-<li><a href="#analyzing-grades-commands-code-coming-in-v2-0-code">3.20. Analyzing grades commands <code>[coming in v2.0]</code></a></li>
-<li><a href="#retrieving-earnings">3.21. Retrieving earnings</a></li>
-<li><a href="#undoing-previous-command-code-undo-code">3.22. Undoing previous command : <code>undo</code></a></li>
-<li><a href="#redoing-the-previously-undone-command-code-redo-code">3.23. Redoing the previously undone command : <code>redo</code></a></li>
-<li><a href="#clearing-all-entries-code-clear-code">3.24. Clearing all entries : <code>clear</code></a></li>
-<li><a href="#adding-tuition-time-of-a-student-code-addtime-code">3.25. Adding tuition time of a student : <code>addTime</code></a></li>
-<li><a href="#deleting-tuition-time-of-a-student-code-deletetime-code">3.26. Deleting tuition time of a student : <code>deleteTime</code></a></li>
-<li><a href="#exiting-the-program-code-exit-code">3.27. Exiting the program : <code>exit</code></a></li>
-<li><a href="#saving-the-data">3.28. Saving the data</a></li>
-<li><a href="#encrypting-data-files-code-coming-in-v2-0-code">3.29. Encrypting data files <code>[coming in v2.0]</code></a></li>
-</ul>
-</li>
-<li><a href="#faq">4. FAQ</a></li>
-<li><a href="#command-summary">5. Command Summary</a></li>
+<li><a href="#Features">3. Features</a></li>
 </ul>
 </div>
 </div>
@@ -66,10 +32,10 @@
 <p>Ensure you have Java version <code>9</code> or later installed in your Computer.</p>
 </li>
 <li>
-<p>Download the latest <code>addressbook.jar</code> <a href="https://github.com/CS2103-AY1819S1-T13-1/main/releases">here</a>.</p>
+<p>Download the latest <code>Tutor Pal.jar</code> <a href="https://github.com/CS2103-AY1819S1-T13-1/main/releases">here</a>.</p>
 </li>
 <li>
-<p>Copy the file to the folder you want to use as the home folder for your Address Book.</p>
+<p>Copy the file to the folder you want to use as the home folder for your Tutor Pal.</p>
 </li>
 <li>
 <p>Double-click the file to start the app. The GUI should appear in a few seconds.</p>
@@ -120,69 +86,85 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <div class="ulist">
 <ul>
 <li>
-<p>Words in <code>UPPER_CASE</code> are the parameters to be supplied by the user e.g. in <code>add n/NAME</code>, <code>NAME</code> is a parameter which can be used as <code>add n/John Doe</code>.</p>
+<p>Words in <code>UPPER_CASE</code> are the parameters to be supplied by users.<br>
+e.g. in <code>add n/NAME</code>, <code>NAME</code> is a parameter which can be used as <code>add n/John Doe</code>.</p>
 </li>
 <li>
-<p>Items in square brackets are optional e.g <code>n/NAME [t/TAG]</code> can be used as <code>n/John Doe t/friend</code> or as <code>n/John Doe</code>.</p>
+<p>Items in square brackets are optional.<br>
+e.g <code>n/NAME [t/TAG]</code> can be used as <code>n/John Doe t/friend</code> or as <code>n/John Doe</code>.</p>
 </li>
 <li>
-<p>Items with <code>…</code>​ after them can be used multiple times including zero times e.g. <code>[t/TAG]&#8230;&#8203;</code> can be used as <code>&#160;</code> (i.e. 0 times), <code>t/friend</code>, <code>t/friend t/family</code> etc.</p>
+<p>Items with <code>…</code>​ after them can be used multiple times including zero times.<br>
+e.g. <code>[t/TAG]&#8230;&#8203;</code> can be used as <code>&#160;</code> (i.e. 0 times), <code>t/friend</code>, <code>t/friend t/family</code> etc.</p>
 </li>
 <li>
-<p>Parameters can be in any order e.g. if the command specifies <code>n/NAME p/PHONE_NUMBER</code>, <code>p/PHONE_NUMBER n/NAME</code> is also acceptable.</p>
+<p>Parameters can be in any order.<br>
+e.g. if the command specifies <code>n/NAME p/PHONE_NUMBER</code>, <code>p/PHONE_NUMBER n/NAME</code> is also acceptable.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>=== Viewing help : <code>help</code></p>
+</div>
+<div class="paragraph">
+<p>Format: <code>help</code></p>
+</div>
+<div class="paragraph">
+<p>=== Adding a person: <code>add</code></p>
+</div>
+<div class="paragraph">
+<p>Adds a person to the student list<br>
+Format: <code>add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS el/EDUCATIONAL_LEVEL [g/GRADE]&#8230;&#8203; [t/TAG]&#8230;&#8203;</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>If the student added has exactly the same name as an existing student in the student list, new student cannot be added.</p>
+</li>
+<li>
+<p><code>EDUCATIONAL_LEVEL</code> must be <code>Primary</code>, <code>Secondary</code> or <code>JC</code>.<br>
+e.g. <code>&#8230;&#8203; el/Primary &#8230;&#8203;</code> is valid; however, <code>&#8230;&#8203; el/primary &#8230;&#8203;</code>, <code>&#8230;&#8203; el/University &#8230;&#8203;</code> or other inputs like these are invalid</p>
+</li>
+<li>
+<p>The format of <code>GRADE</code> is <code>exam name</code> + <code>exam score</code>.<br>
+e.g. <code>&#8230;&#8203; g/mid-test 100 &#8230;&#8203;</code></p>
 </li>
 </ul>
 </div>
 </div>
 </div>
-<div class="sect2">
-<h3 id="viewing-help-code-help-code"><a class="link" href="#viewing-help-code-help-code">3.1. Viewing help : <code>help</code></a></h3>
-<div class="paragraph">
-<p>Format: <code>help</code></p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="adding-a-person-code-add-code"><a class="link" href="#adding-a-person-code-add-code">3.2. Adding a person: <code>add</code></a></h3>
-<div class="paragraph">
-<p>Adds a person to the address book<br>
-Format: <code>add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS el/EDUCATIONAL_LEVEL g/GRADE [t/TAG]</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>A person can have any number of tags and grades (including 0).</p>
+</li>
+<li>
+<p>Name of the exam should be different. Otherwise, they will be considered as the same one and the APP will store the score of the last one.</p>
+</li>
+</ul>
 </div>
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
-</td>
-<td class="content">
-A person can have any number of tags and grades (including 0).
-You can see the details about grade attribute in the <a href="#grade">grade feature</a>
-</td>
-</tr>
-</table>
-</div>
+<div class="exampleblock">
+<div class="content">
 <div class="paragraph">
 <p>Examples:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><code>add n/John Doe p/98765432 e/johnd@example.com a/311, Clementi Ave 2, #02-25 el/Primary 4 g/Y1819S1_Mid 89 t/friends t/owesMoney</code></p>
+<p><code>add n/John Doe p/98765432 e/johnd@example.com a/311, Clementi Ave 2, #02-25 el/Primary 4 g/Y1819S1_Final 100 g/Y1819S1_Mid 89 t/friends t/owesMoney</code></p>
 </li>
 </ul>
 </div>
-</div>
-<div class="sect2">
-<h3 id="listing-all-persons-code-list-code"><a class="link" href="#listing-all-persons-code-list-code">3.3. Listing all persons : <code>list</code></a></h3>
 <div class="paragraph">
-<p>Shows a list of all persons in the address book.<br>
-Format: <code>list</code></p>
+<p>=== Editing a person : <code>edit</code></p>
 </div>
-</div>
-<div class="sect2">
-<h3 id="editing-a-person-code-edit-code"><a class="link" href="#editing-a-person-code-edit-code">3.4. Editing a person : <code>edit</code></a></h3>
 <div class="paragraph">
-<p>Edits an existing person in the address book.<br>
-Format: <code>edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]&#8230;&#8203;</code></p>
+<p>Edits an existing person in the student list.<br>
+Format: <code>edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [el/EDUCATIONAL_LEVEL] [g/GRADE] [t/TAG]&#8230;&#8203;</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -198,13 +180,14 @@ Format: <code>edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]&#8230;
 <p>Existing values will be updated to the input values.</p>
 </li>
 <li>
-<p>When editing tags, the existing tags of the person will be removed i.e adding of tags is not cumulative.</p>
+<p>When editing tags, the existing tags of the person will be removed.<br>
+i.e adding of tags is not cumulative.</p>
 </li>
 <li>
 <p>You can remove all the person&#8217;s tags by typing <code>t/</code> without specifying any tags after it.</p>
 </li>
 <li>
-<p>You can see the details about grade attribute in the <a href="#grade">grade feature</a></p>
+<p>Edit grade will not delete the previous grades as the tap attribute. If the exam name exists already, it will cover the previous one and edit the score only.</p>
 </li>
 </ul>
 </div>
@@ -225,9 +208,205 @@ Edits the name of the 2nd person to be <code>Betsy Crower</code> and clears all 
 </li>
 </ul>
 </div>
+<div id="grade" class="paragraph">
+<p>=== Grades attribute</p>
 </div>
-<div class="sect2">
-<h3 id="locating-persons-by-name-code-find-code"><a class="link" href="#locating-persons-by-name-code-find-code">3.5. Locating persons by name: <code>find</code></a></h3>
+<div class="paragraph">
+<p>Grade attribute consists of two parts, <code>exam name</code> and <code>exam score</code>.</p>
+</div>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The name and grade should be separated by space.</p>
+</li>
+<li>
+<p>Score should be between 0 and 100.</p>
+</li>
+<li>
+<p>Considering the grades are just some records, the APP didn&#8217;t implement the delete function temporarily. If you input a wrong exam name, use undo to fix it.</p>
+</li>
+</ul>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>Add grade:</p>
+</div>
+<div class="paragraph">
+<p>You can add some grades record for a student, both using add command and edit command.</p>
+</div>
+<div class="paragraph">
+<p>Example</p>
+</div>
+<div class="paragraph">
+<p><code>add &#8230;&#8203; g/mid-test 100 [other grades]</code></p>
+</div>
+<div class="paragraph">
+<p><code>edit 1 g/mid-test 100</code></p>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Edit grade will not delete the previous grades as tap attribute.</p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>Change grade:</p>
+</div>
+<div class="paragraph">
+<p>if you need to change the score of a exam, you can use edit as well.</p>
+</div>
+<div class="paragraph">
+<p>=== Listing all persons : <code>list</code></p>
+</div>
+<div class="paragraph">
+<p>Shows a list of all persons in Tutor Pal.<br>
+Format: <code>list</code></p>
+</div>
+<div class="paragraph">
+<p>=== Adding tuition time of a student : <code>addTime</code></p>
+</div>
+<div class="paragraph">
+<p>Adds a tuition time slot for a student in the address book.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>addTime n/NAME ts/TIME</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The student with the name <code>NAME</code> must be already be in the address book.</p>
+</li>
+<li>
+<p>Adds the tuition time <code>TIME</code> for the student called <code>NAME</code>.</p>
+</li>
+<li>
+<p><code>TIME</code> must not clash with any other tuition time in the address book.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>addTime n/John Doe ts/mon 1300 1500</code><br>
+Adds the tuition timing for John Doe that is on Monday which starts at 1300hour and ends at 1500hour.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>=== Edit certain class time of certain student: <code>editTime</code></p>
+</div>
+<div class="paragraph">
+<p>Edit certain class time of certain student<br>
+Format: <code>editTime n/NAME ts/OLD_TIME_SLOT ts/NEW_TIME_SLOT</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>filter result: list the person&#8217;s name who takes class at given time.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>If no one is qualified then shows cannot find.</p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>=== Edit certain class time of certain student: <code>exchangeTime</code></p>
+</div>
+<div class="paragraph">
+<p>Exchange class time between two students who are in the same grade of same education level<br>
+Format: <code>exchangeTime NAME_A A_TIME_SLOT_ORDINAL_NUMBER NAME_B B_TIME_SLOT_ORDINAL_NUMBER</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>exchange result: exchanged the time between the given students with given time found by the ordinal number.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>exchangeTime Alice 0 Bob 0</code>
+Exchange Alice first time slot and Bob first time slot.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>The reason this command exists is that when two student want to swap time
+it cannot only use edit because the existing time-slot will crush.</p>
+</div>
+<div class="paragraph">
+<p>If the two students are not in the same grade of same education level
+It will be considered as invalid command.</p>
+</div>
+<div class="paragraph">
+<p>The ordinal number of the time is 0 base.
+If the the corresponding time-slot doesn&#8217;t exit based on the ordinal number, then return invalid input.</p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>=== Deleting tuition time of a student : <code>deleteTime</code></p>
+</div>
+<div class="paragraph">
+<p>Deletes a tuition time slot for a student in the address book.
+Format: <code>deleteTime n/NAME ts/TIME</code></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The student with the name <code>NAME</code> must be already be in the address book.</p>
+</li>
+<li>
+<p><code>TIME</code> must already exist in the student&#8217;s tuition timings.</p>
+</li>
+<li>
+<p>The student with the name <code>NAME</code> will have the tuition timing <code>TIME</code> deleted.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>deleteTime n/John Doe ts/mon 1300 1500</code><br>
+Deletes the tuition timing for John Doe that is on Monday which starts at 1300hour and ends at 1500hour.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>=== Locating persons by name: <code>find</code></p>
+</div>
 <div class="paragraph">
 <p>Finds persons whose names contain any of the given keywords.<br>
 Format: <code>find KEYWORD [MORE_KEYWORDS]</code></p>
@@ -277,9 +456,9 @@ Returns any person having names <code>David</code>, <code>Roy</code>, or <code>J
 </li>
 </ul>
 </div>
+<div class="paragraph">
+<p>=== Locating persons by address: <code>find/a</code></p>
 </div>
-<div class="sect2">
-<h3 id="locating-persons-by-address-code-find-a-code"><a class="link" href="#locating-persons-by-address-code-find-a-code">3.6. Locating persons by address: <code>find/a</code></a></h3>
 <div class="paragraph">
 <p>Finds persons whose addresses contain all the given keywords.<br>
 Format: <code>find/a KEYWORD [MORE_KEYWORDS]</code></p>
@@ -346,9 +525,9 @@ Returns persons whose addresses containing the keyword <code>Serangoon</code>, i
 </li>
 </ul>
 </div>
+<div class="paragraph">
+<p>=== Locating persons by email address: <code>find/e</code></p>
 </div>
-<div class="sect2">
-<h3 id="locating-persons-by-email-address-code-find-e-code"><a class="link" href="#locating-persons-by-email-address-code-find-e-code">3.7. Locating persons by email address: <code>find/e</code></a></h3>
 <div class="paragraph">
 <p>Finds a person through his/her email address.<br>
 Format: <code>find/e EMAIL</code></p>
@@ -394,9 +573,9 @@ Returns <code>David Li</code> whose email address is <code>lidavid@example.com</
 </li>
 </ul>
 </div>
+<div class="paragraph">
+<p>=== Locating persons by phone number: <code>find/p</code></p>
 </div>
-<div class="sect2">
-<h3 id="locating-persons-by-phone-number-code-find-p-code"><a class="link" href="#locating-persons-by-phone-number-code-find-p-code">3.8. Locating persons by phone number: <code>find/p</code></a></h3>
 <div class="paragraph">
 <p>Finds a person through his/her phone number.<br>
 Format: <code>find/p PHONE_NUMBER</code></p>
@@ -438,11 +617,11 @@ Returns <code>John Doe</code> whose phone number is <code>98765432</code> (fuzzy
 </li>
 </ul>
 </div>
-</div>
-<div class="sect2">
-<h3 id="deleting-a-person-code-delete-code"><a class="link" href="#deleting-a-person-code-delete-code">3.9. Deleting a person : <code>delete</code></a></h3>
 <div class="paragraph">
-<p>Deletes the specified person from the address book.<br>
+<p>=== Deleting a person : <code>delete</code></p>
+</div>
+<div class="paragraph">
+<p>Deletes the specified person from the student list.<br>
 Format: <code>delete INDEX</code></p>
 </div>
 <div class="sidebarblock">
@@ -470,7 +649,7 @@ Format: <code>delete INDEX</code></p>
 <li>
 <p><code>list</code><br>
 <code>delete 2</code><br>
-Deletes the 2nd person in the address book.</p>
+Deletes the 2nd person in the student list.</p>
 </li>
 <li>
 <p><code>find Betsy</code><br>
@@ -479,9 +658,9 @@ Deletes the 1st person in the results of the <code>find</code> command.</p>
 </li>
 </ul>
 </div>
+<div class="paragraph">
+<p>=== Selecting a person : <code>select</code></p>
 </div>
-<div class="sect2">
-<h3 id="selecting-a-person-code-select-code"><a class="link" href="#selecting-a-person-code-select-code">3.10. Selecting a person : <code>select</code></a></h3>
 <div class="paragraph">
 <p>Selects the person identified by the index number used in the displayed person list.<br>
 Format: <code>select INDEX</code></p>
@@ -511,7 +690,7 @@ Format: <code>select INDEX</code></p>
 <li>
 <p><code>list</code><br>
 <code>select 2</code><br>
-Selects the 2nd person in the address book.</p>
+Selects the 2nd person in the student list.</p>
 </li>
 <li>
 <p><code>find Betsy</code><br>
@@ -520,19 +699,19 @@ Selects the 1st person in the results of the <code>find</code> command.</p>
 </li>
 </ul>
 </div>
-</div>
-<div class="sect2">
-<h3 id="making-list-by-limit-fee-command-code-filterbyfee-code"><a class="link" href="#making-list-by-limit-fee-command-code-filterbyfee-code">3.11. Making list by limit fee command: <code>filterByFee</code></a></h3>
 <div class="paragraph">
-<p>Making list of according to minimal limit fee<br>
-Format: <code>filterByFee [minimal fee to be filtered]</code></p>
+<p>=== Filter students by tuition fee: <code>filterByFee</code></p>
+</div>
+<div class="paragraph">
+<p>List all the students whose tuition fee is greater or equal to the input fee.<br>
+Format: <code>filterByFee FEE</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
 <div class="ulist">
 <ul>
 <li>
-<p>filter result: list the person&#8217;s name whose fee is not less than minimal fee.</p>
+<p>filter result: list all the students whose tuition fee is greater or equal to the input fee.</p>
 </li>
 </ul>
 </div>
@@ -545,39 +724,31 @@ Format: <code>filterByFee [minimal fee to be filtered]</code></p>
 <ul>
 <li>
 <p><code>filterByFee 24</code>
-returns a list of students whose tuition fee is more than
-or equals to $24/hour.</p>
+returns a list of students whose tuition fee is greater or equals to $24/hour.</p>
 </li>
 </ul>
 </div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
+</div>
+</div>
 <div class="paragraph">
 <p>If no students qualify the filter criteria, an empty list is returned along with
 a system message which says that no such students can be found.</p>
 </div>
-</td>
-</tr>
-</table>
-</div>
-</div>
-<div class="sect2">
-<h3 id="making-list-by-limit-fee-command-code-filterbyeducation-code"><a class="link" href="#making-list-by-limit-fee-command-code-filterbyeducation-code">3.12. Making list by limit fee command: <code>filterByEducation</code></a></h3>
+<div class="exampleblock">
+<div class="content">
 <div class="paragraph">
-<p>Making list of students who are in the given education<br>
-Format: <code>filterByEducation [education level]</code></p>
+<p>=== Filter students by educational level: <code>filterByEducation</code></p>
+</div>
+<div class="paragraph">
+<p>List all the students with given educational level<br>
+Format: <code>filterByEducation EDUCATIONAL_LEVEL</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
 <div class="ulist">
 <ul>
 <li>
-<p>filter result: list the person&#8217;s name whose education level is the same as input.</p>
+<p>filter result: list all the students whose education level is the same as input.</p>
 </li>
 </ul>
 </div>
@@ -589,50 +760,38 @@ Format: <code>filterByEducation [education level]</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>filterByEducation Secondary</code>
-returns a list of students whose Education level is Secondary.(no matter
- which year he or she is in)</p>
+<p><code>filterByEducation Secondary</code><br>
+returns a list of students whose Education level is Secondary.(no matter which year he or she is in)</p>
 </li>
 <li>
-<p><code>filterByEducation JC</code>
-returns a list of students whose Education level is JC.(no matter which year
-he or she is in)</p>
+<p><code>filterByEducation JC</code><br>
+returns a list of students whose Education level is JC.(no matter which year he or she is in)</p>
 </li>
 </ul>
 </div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>If no students qualify the filter criteria, an empty list is returned along with
-a system message which says that no such students can be found.</p>
+</div>
 </div>
 <div class="paragraph">
-<p>The input of the education level must be "JC" "Secondary" or "Primary"
-Other input will be considered invalid input.</p>
+<p>If no students qualify the filter criteria, an empty list is returned along with a system message which says that no such students can be found.</p>
 </div>
-</td>
-</tr>
-</table>
-</div>
-</div>
-<div class="sect2">
-<h3 id="making-list-by-limit-fee-command-code-filterbygrade-code"><a class="link" href="#making-list-by-limit-fee-command-code-filterbygrade-code">3.13. Making list by limit fee command: <code>filterByGrade</code></a></h3>
 <div class="paragraph">
-<p>Returns a list of of students whose grades fall between the minimum and maximum grade<br>
-Format: <code>filterByGrade [minimum grade] [maximum grade]</code></p>
+<p>The input of the education level must be "JC" "Secondary" or "Primary". Other input will be considered invalid input.</p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>=== Filter students by grade: <code>filterByGrade</code></p>
+</div>
+<div class="paragraph">
+<p>List all the students whose grades fall between the minimum and maximum grade(both inclusive).<br>
+Format: <code>filterByGrade MINIMUM_GRADE MAXIMUM_GRADE</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
 <div class="ulist">
 <ul>
 <li>
-<p>filter result: A list containing students with grades which fall between the minimum and
-maximum grade(both included).</p>
+<p>filter result: A list containing students with grades which fall between the minimum and maximum grade.</p>
 </li>
 </ul>
 </div>
@@ -644,43 +803,34 @@ maximum grade(both included).</p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>filterByGrade 50 100</code>
-returns a list of students whose has grade within 50 and 100.</p>
+<p><code>filterByGrade 50 100</code><br>
+returns a list of students whose has grade within 50 and 100 (both 50 and 100 are inclusive).</p>
 </li>
 </ul>
 </div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>If the input minimal grade is larger than maximal grade, then it will be regarded as
-the range between maximal and minimal grade.</p>
+</div>
 </div>
 <div class="paragraph">
-<p>If no students qualify the filter criteria, an empty list is returned along with
-a system message which says that no such students can be found.</p>
+<p>If the input minimal grade is larger than maximal grade, then it will be regarded as the range between maximal and minimal grade.</p>
 </div>
-</td>
-</tr>
-</table>
-</div>
-</div>
-<div class="sect2">
-<h3 id="making-list-by-limit-fee-command-code-filterbytime-code"><a class="link" href="#making-list-by-limit-fee-command-code-filterbytime-code">3.14. Making list by limit fee command: <code>filterByTime</code></a></h3>
 <div class="paragraph">
-<p>Show the student name who taking class ar the given time<br>
-Format: <code>filterByTime [given TimeSlot]</code></p>
+<p>If no students qualify the filter criteria, an empty list is returned along with a system message which says that no such students can be found.</p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>=== Filter students by time slot: <code>filterByTime</code></p>
+</div>
+<div class="paragraph">
+<p>List the student who has class at the given time.<br>
+Format: <code>filterByTime TIME_SLOT</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
 <div class="ulist">
 <ul>
 <li>
-<p>filter result: A student who has a lesson at the given timeslot</p>
+<p>filter result: A student who has a lesson at the given time slot.</p>
 </li>
 </ul>
 </div>
@@ -692,136 +842,52 @@ Format: <code>filterByTime [given TimeSlot]</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>filterByTime mon 1300 1400</code>
+<p><code>filterByTime mon 1300 1400</code><br>
 returns the student whose has tuition time in monday 1300-1400.</p>
 </li>
 </ul>
 </div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>The time must be followed as format like "mon 1300 1400"
-and only "mon" "tue" "wed" "thu" "fri" "sun" "sat" are considered valid date.</p>
+</div>
 </div>
 <div class="paragraph">
-<p>If no student qualify the filter criteria, an empty list is returned along with
-a system message which says that no such students can be found.</p>
+<p>The time must be followed as format like "mon 1300 1400" and only "mon" "tue" "wed" "thu" "fri" "sun" "sat" are considered valid date.</p>
 </div>
-</td>
-</tr>
-</table>
-</div>
-</div>
-<div class="sect2">
-<h3 id="edit-certain-class-time-of-certain-student-code-exchangetime-code"><a class="link" href="#edit-certain-class-time-of-certain-student-code-exchangetime-code">3.15. Edit certain class time of certain student: <code>ExchangeTime</code></a></h3>
 <div class="paragraph">
-<p>Exchange class time between two students who are in the same grade of same education level<br>
-Format: <code>Exch [studentA name] [A time-slot ordinal number within A&#8217;s time-slot array] [studentB name]
-[B time-slot ordinal number within B&#8217;s time-slot array]</code></p>
+<p>If no students qualify the filter criteria, an empty list is returned along with a system message which says that no such students can be found.</p>
 </div>
-<div class="sidebarblock">
+<div class="exampleblock">
 <div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>exchange result: exchanged the time between the given students with given time found by the ordinal number.</p>
-</li>
-</ul>
+<div class="paragraph">
+<p>=== Retrieving earnings: <code>earnings</code></p>
+</div>
+<div class="paragraph">
+<p>Retrieve the total earnings within a range of date in the current year.<br>
+Format: <code>earnings START_DATE END_DATE</code></p>
 </div>
 </div>
 </div>
 <div class="paragraph">
-<p>Examples:</p>
+<p>DDMM is the format of date to be entered. The year will be current year by default.</p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>ExchangeTime Alice 0 Bob 0</code>
-Exchange Alice first time-slot and Bob first time-slot.</p>
-</li>
-</ul>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>The reason this command exists is that when two student want to swap time
-it cannot only use edit because the existing time-slot will crush.</p>
-</div>
-<div class="paragraph">
-<p>If the two students are not in the same grade of same education level
-It will be considered as invalid command.</p>
-</div>
-<div class="paragraph">
-<p>The ordinal number of the time is 0 base.
-If the the corresponding time-slot doenst exit based on the ordinal number, then return invalid input.</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
-</div>
-<div class="sect2">
-<h3 id="edit-certain-class-time-of-certain-student-code-edittime-code"><a class="link" href="#edit-certain-class-time-of-certain-student-code-edittime-code">3.16. Edit certain class time of certain student: <code>EditTime</code></a></h3>
-<div class="paragraph">
-<p>Edit certain class time of certain student<br>
-Format: <code>EditTime n/student name ts/old timeslot ts/new timeslot</code></p>
-</div>
-<div class="sidebarblock">
+<div class="exampleblock">
 <div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>filter result: list the person&#8217;s name who takes class at given time.</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
 <div class="paragraph">
-<p>Examples:</p>
+<p>Example:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><code>EditTime n/Alice ts/mon 1300 1400 ts/tue 1300 1400</code>
-Edit the time slot of Alice into new time slot tue 1300-1400.</p>
+<p><code>earnings 0204 2506</code><br>
+This command returns the total amount of tuition fees earned between 2 April 2018 to 25 June 2018 inclusive.</p>
 </li>
 </ul>
 </div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
 <div class="paragraph">
-<p>The prefix is needed as valid input.</p>
+<p>=== Give Suggestions to students: <code>suggestion</code></p>
 </div>
-<div class="paragraph">
-<p>If the new time slot already token by others then cannot edit anymore.
-If the old time does not exit then cannot edit.</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
-</div>
-<div class="sect2">
-<h3 id="give-suggestions-to-students-code-suggestion-code"><a class="link" href="#give-suggestions-to-students-code-suggestion-code">3.17. Give Suggestions to students: <code>Suggestion</code></a></h3>
 <div class="paragraph">
 <p>Give Suggestions to students<br>
-Format: <code>Suggestion studentName</code></p>
+Format: <code>suggestion NAME</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -840,197 +906,47 @@ Format: <code>Suggestion studentName</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>Suggestion Alice</code>
+<p><code>suggestion Alice</code>
 Show the suggestion to Alice according to her performance.</p>
 </li>
 </ul>
 </div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
+</div>
+</div>
 <div class="paragraph">
 <p>If the student has not taken any exam before
 No suggestion gonna be shown.</p>
 </div>
-</td>
-</tr>
-</table>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>=== Listing entered commands : <code>history</code></p>
 </div>
-</div>
-<div class="sect2">
-<h3 id="listing-entered-commands-code-history-code"><a class="link" href="#listing-entered-commands-code-history-code">3.18. Listing entered commands : <code>history</code></a></h3>
 <div class="paragraph">
 <p>Lists all the commands that you have entered in reverse chronological order.<br>
 Format: <code>history</code></p>
 </div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
+</div>
+</div>
 <div class="paragraph">
 <p>Pressing the <kbd>&uarr;</kbd> and <kbd>&darr;</kbd> arrows will display the previous and next input respectively in the command box.</p>
 </div>
-</td>
-</tr>
-</table>
-</div>
-</div>
-<div class="sect2">
-<h3 id="grade"><a class="link" href="#grade">3.19. Grades attribute</a></h3>
-<div class="paragraph">
-<p>Grade attribute consists of two parts, exam name and exam score.</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>The name and grade should be separated by space.</p>
-</li>
-<li>
-<p>Score should be between 0 and 100.</p>
-</li>
-<li>
-<p>Considering the grades are just some records, the APP didn&#8217;t implement the delete function temporarily. If you input a wrong exam name, use undo to fix it.</p>
-</li>
-</ul>
-</div>
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>Add grade:</p>
-</div>
-<div class="paragraph">
-<p>You can add some grades record for a student, both using add command and edit command.</p>
-</div>
-<div class="paragraph">
-<p>Example</p>
-</div>
-<div class="paragraph">
-<p><code>add g/mid-test 100 [other part]</code></p>
-</div>
-<div class="paragraph">
-<p><code>edit 1 g/mid-test 100</code></p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>Edit grade will not delete the previous grades as tap attribute.</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>Change grade:</p>
-</div>
-<div class="paragraph">
-<p>if you need to change the score of a exam, you can use edit as well.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="analyzing-grades-commands-code-coming-in-v2-0-code"><a class="link" href="#analyzing-grades-commands-code-coming-in-v2-0-code">3.20. Analyzing grades commands <code>[coming in v2.0]</code></a></h3>
-<div class="paragraph">
-<p>Analyze the grades of students<br>
-Format: <code>grades ACTION [parameters]</code></p>
-</div>
-<div class="sidebarblock">
+<div class="exampleblock">
 <div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>grades sort: list the details of students sorting by grades.</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
 <div class="paragraph">
-<p>Regard the mark of the student who doesn&#8217;t have a grade as 0.</p>
+<p>=== Undoing previous command : <code>undo</code></p>
 </div>
-</td>
-</tr>
-</table>
-</div>
-</div>
-<div class="sect2">
-<h3 id="retrieving-earnings"><a class="link" href="#retrieving-earnings">3.21. Retrieving earnings</a></h3>
-<div class="paragraph">
-<p>Retrieve the total earnings within a range of date in the current year.<br>
-Format: <code>earnings START_DATE END_DATE</code></p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>DDMM is the format of date to be entered. The year will be current year by default.</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>Example:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>earnings 0204 2506</code><br>
-This command returns the total amount of tuition fees earned between 2 April 2018 to 25 June 2018 inclusive.</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="undoing-previous-command-code-undo-code"><a class="link" href="#undoing-previous-command-code-undo-code">3.22. Undoing previous command : <code>undo</code></a></h3>
 <div class="paragraph">
 <p>Restores the address book to the state before the previous <em>undoable</em> command was executed.<br>
 Format: <code>undo</code></p>
 </div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
+</div>
+</div>
 <div class="paragraph">
 <p>Undoable commands: those commands that modify the address book&#8217;s content (<code>add</code>, <code>delete</code>, <code>edit</code> and <code>clear</code>).</p>
 </div>
-</td>
-</tr>
-</table>
-</div>
+<div class="exampleblock">
+<div class="content">
 <div class="paragraph">
 <p>Examples:</p>
 </div>
@@ -1055,9 +971,9 @@ The <code>undo</code> command fails as there are no undoable commands executed p
 </li>
 </ul>
 </div>
+<div class="paragraph">
+<p>=== Redoing the previously undone command : <code>redo</code></p>
 </div>
-<div class="sect2">
-<h3 id="redoing-the-previously-undone-command-code-redo-code"><a class="link" href="#redoing-the-previously-undone-command-code-redo-code">3.23. Redoing the previously undone command : <code>redo</code></a></h3>
 <div class="paragraph">
 <p>Reverses the most recent <code>undo</code> command.<br>
 Format: <code>redo</code></p>
@@ -1087,116 +1003,76 @@ The <code>redo</code> command fails as there are no <code>undo</code> commands e
 </li>
 </ul>
 </div>
+<div class="paragraph">
+<p>=== Clearing all entries : <code>clear</code></p>
 </div>
-<div class="sect2">
-<h3 id="clearing-all-entries-code-clear-code"><a class="link" href="#clearing-all-entries-code-clear-code">3.24. Clearing all entries : <code>clear</code></a></h3>
 <div class="paragraph">
 <p>Clears all entries from the address book.<br>
 Format: <code>clear</code></p>
 </div>
-</div>
-<div class="sect2">
-<h3 id="adding-tuition-time-of-a-student-code-addtime-code"><a class="link" href="#adding-tuition-time-of-a-student-code-addtime-code">3.25. Adding tuition time of a student : <code>addTime</code></a></h3>
 <div class="paragraph">
-<p>Adds a tuition timing for a student in the address book.</p>
+<p>=== Exiting the program : <code>exit</code></p>
 </div>
-<div class="paragraph">
-<p>Format: <code>addTime INDEX ts/TIME</code></p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Adds tuition timing <code>TIME</code> for the student at the specified INDEX. The index refers to the index number shown in the displayed person list. The index must be a positive integer 1, 2, 3, &#8230;&#8203;</p>
-</li>
-<li>
-<p><code>TIME</code> must not clash with any other tuition time in the address book.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Example:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>addTime 1 ts/mon 1300 1500</code><br>
-Adds the tuition timing that is on Monday which starts on 1300hour and ends on 1500hour for the 1st person in the address book.</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="deleting-tuition-time-of-a-student-code-deletetime-code"><a class="link" href="#deleting-tuition-time-of-a-student-code-deletetime-code">3.26. Deleting tuition time of a student : <code>deleteTime</code></a></h3>
-<div class="paragraph">
-<p>Deletes a tuition timing for a student in the address book.</p>
-</div>
-<div class="paragraph">
-<p>Format: <code>deleteTime INDEX ts/TIME</code></p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Deletes tuition timing <code>TIME</code> for the student at the specified INDEX. The index refers to the index number shown in the displayed person list. The index must be a positive integer 1, 2, 3, &#8230;&#8203;</p>
-</li>
-<li>
-<p><code>TIME</code> must already exist in the student&#8217;s tuition timings.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Example:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>deleteTime 1 ts/mon 1300 1500</code><br>
-Deletes the tuition timing that is on Monday which starts on 1300hour and ends on 1500hour for the 1st person in the address book.</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.27. Exiting the program : <code>exit</code></a></h3>
 <div class="paragraph">
 <p>Exits the program.<br>
 Format: <code>exit</code></p>
 </div>
+<div class="paragraph">
+<p>=== Saving the data</p>
 </div>
-<div class="sect2">
-<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.28. Saving the data</a></h3>
 <div class="paragraph">
 <p>Address book data are saved in the hard disk automatically after any command that changes the data.<br>
 There is no need to save manually.</p>
 </div>
-</div>
-<div class="sect2">
-<h3 id="encrypting-data-files-code-coming-in-v2-0-code"><a class="link" href="#encrypting-data-files-code-coming-in-v2-0-code">3.29. Encrypting data files <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
-<p><em>{explain how the user can enable/disable data encryption}</em></p>
+<p>=== Analyzing grades commands <code>[coming in v2.0]</code></p>
 </div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="faq"><a class="link" href="#faq">4. FAQ</a></h2>
-<div class="sectionbody">
 <div class="paragraph">
-<p><strong>Q</strong>: How do I transfer my data to another Computer?<br>
-<strong>A</strong>: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous Address Book folder.</p>
+<p>Analyze the grades of students<br>
+Format: <code>grades ACTION [parameters]</code></p>
 </div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="command-summary"><a class="link" href="#command-summary">5. Command Summary</a></h2>
-<div class="sectionbody">
+<div class="sidebarblock">
+<div class="content">
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Add</strong> : <code>add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS el/EDUCATIONAL_LEVEL g/GRADE [t/TAG]</code><br>
+<p>grades sort: list the details of students sorting by grades.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Regard the mark of the student who doesn&#8217;t have a grade as 0.</p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>=== Encrypting data files <code>[coming in v2.0]</code></p>
+</div>
+<div class="paragraph">
+<p><em>{explain how the user can enable/disable data encryption}</em></p>
+</div>
+<div class="paragraph">
+<p>== FAQ</p>
+</div>
+<div class="paragraph">
+<p><strong>Q</strong>: How do I transfer my data to another Computer?<br>
+<strong>A</strong>: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous Tutor Pal folder.</p>
+</div>
+<div class="paragraph">
+<p>== Command Summary</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Add</strong> : <code>add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS el/EDUCATIONAL_LEVEL [g/GRADE]&#8230;&#8203; [t/TAG]&#8230;&#8203;</code><br>
 e.g. <code>add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 el/JC 1 g/FinalExam 85</code></p>
 </li>
 <li>
-<p><strong>AddTime</strong> : <code>addTime INDEX ts/TIME</code><br>
+<p><strong>Add time</strong> : <code>addTime INDEX ts/TIME</code><br>
 e.g. <code>addTime 1 ts/mon 1300 1500</code></p>
 </li>
 <li>
@@ -1207,12 +1083,39 @@ e.g. <code>addTime 1 ts/mon 1300 1500</code></p>
 e.g. <code>delete 3</code></p>
 </li>
 <li>
-<p><strong>DeleteTime</strong> : <code>deleteTime INDEX ts/TIME</code><br>
+<p><strong>Delete time</strong> : <code>deleteTime INDEX ts/TIME</code><br>
 e.g. <code>deleteTime 1 ts/mon 1300 1500</code></p>
+</li>
+<li>
+<p><strong>Earnings</strong> : <code>earnings START_DATE END_DATE</code></p>
 </li>
 <li>
 <p><strong>Edit</strong> : <code>edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [t/TAG]&#8230;&#8203;</code><br>
 e.g. <code>edit 2 n/James Lee e/jameslee@example.com</code></p>
+</li>
+<li>
+<p><strong>Edit time</strong> : <code>editTime n/NAME ts/OLD_TIME_SLOT ts/NEW_TIME_SLOT</code><br>
+e.g. <code>editTime n/Alice ts/mon 1300 1400 ts/tue 1300 1400</code></p>
+</li>
+<li>
+<p><strong>Exchange time</strong> : <code>exchangeTime NAME_A A_TIME_SLOT_ORDINAL_NUMBER NAME_B B_TIME_SLOT_ORDINAL_NUMBER</code><br>
+e.g. <code>ExchangeTime Alice 0 Bob 0</code></p>
+</li>
+<li>
+<p><strong>Filter by fee</strong> : <code>filterByFee FEE</code><br>
+e.g. <code>filterByFee 24</code></p>
+</li>
+<li>
+<p><strong>Filter by educational level</strong> : <code>filterByEducation EDUCATIONAL_LEVEL</code><br>
+e.g. <code>filterByEducation Secondary</code></p>
+</li>
+<li>
+<p><strong>Filter by grade</strong> : <code>filterByGrade MINIMUM_GRADE MAXIMUM_GRADE</code><br>
+e.g. <code>filterByGrade 50 100</code></p>
+</li>
+<li>
+<p><strong>Filter by time</strong> : <code>filterByFee TIME_SLOT</code><br>
+e.g. <code>filterByTime mon 1300 1400</code></p>
 </li>
 <li>
 <p><strong>Find</strong> : <code>find KEYWORD [MORE_KEYWORDS]</code><br>
@@ -1231,31 +1134,31 @@ e.g <code>find/p 12345678</code></p>
 e.g <code>find/e <a href="mailto:lidavid@example.com">lidavid@example.com</a></code></p>
 </li>
 <li>
+<p><strong>Help</strong> : <code>help</code></p>
+</li>
+<li>
+<p><strong>History</strong> : <code>history</code></p>
+</li>
+<li>
 <p><strong>List</strong> : <code>list</code></p>
 </li>
 <li>
-<p><strong>Help</strong> : <code>help</code></p>
+<p><strong>Redo</strong> : <code>redo</code></p>
 </li>
 <li>
 <p><strong>Select</strong> : <code>select INDEX</code><br>
 e.g.<code>select 2</code></p>
 </li>
 <li>
-<p><strong>filterByFee</strong> : <code>filterByFee FEE</code></p>
-</li>
-<li>
-<p><strong>Earnings</strong> : <code>earnings START_DATE END_DATE</code></p>
-</li>
-<li>
-<p><strong>History</strong> : <code>history</code></p>
+<p><strong>Suggestion</strong> : <code>suggestion NAME</code><br>
+e.g.<code>suggestion Alice</code></p>
 </li>
 <li>
 <p><strong>Undo</strong> : <code>undo</code></p>
 </li>
-<li>
-<p><strong>Redo</strong> : <code>redo</code></p>
-</li>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-07 15:08:27 UTC</div></div></div></body></html>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-07 16:02:36 UTC</div></div></div></body></html>
