@@ -1098,18 +1098,15 @@ Format: <code>clear</code></p>
 <div class="sect2">
 <h3 id="adding-tuition-time-of-a-student-code-addtime-code"><a class="link" href="#adding-tuition-time-of-a-student-code-addtime-code">3.25. Adding tuition time of a student : <code>addTime</code></a></h3>
 <div class="paragraph">
-<p>Adds a tuition time slot for a student in the address book.</p>
+<p>Adds a tuition timing for a student in the address book.</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>addtime n/NAME ts/TIME</code></p>
+<p>Format: <code>addTime INDEX ts/TIME</code></p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The student with the name <code>NAME</code> must be already be in the address book.</p>
-</li>
-<li>
-<p>Adds the tuition time <code>TIME</code> for the student called <code>NAME</code>.</p>
+<p>Adds tuition timing <code>TIME</code> for the student at the specified INDEX. The index refers to the index number shown in the displayed person list. The index must be a positive integer 1, 2, 3, &#8230;&#8203;</p>
 </li>
 <li>
 <p><code>TIME</code> must not clash with any other tuition time in the address book.</p>
@@ -1122,8 +1119,8 @@ Format: <code>clear</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>addTime n/John Doe ts/mon 1300 1500</code><br>
-Adds the tuition timing for John Doe that is on Monday which starts at 1300hour and ends at 1500hour.</p>
+<p><code>addTime 1 ts/mon 1300 1500</code><br>
+Adds the tuition timing that is on Monday which starts on 1300hour and ends on 1500hour for the 1st person in the address book.</p>
 </li>
 </ul>
 </div>
@@ -1131,21 +1128,18 @@ Adds the tuition timing for John Doe that is on Monday which starts at 1300hour 
 <div class="sect2">
 <h3 id="deleting-tuition-time-of-a-student-code-deletetime-code"><a class="link" href="#deleting-tuition-time-of-a-student-code-deletetime-code">3.26. Deleting tuition time of a student : <code>deleteTime</code></a></h3>
 <div class="paragraph">
-<p>Deletes a tuition time slot for a student in the address book.</p>
+<p>Deletes a tuition timing for a student in the address book.</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>deletetime n/NAME ts/TIME</code></p>
+<p>Format: <code>deleteTime INDEX ts/TIME</code></p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The student with the name <code>NAME</code> must be already be in the address book.</p>
+<p>Deletes tuition timing <code>TIME</code> for the student at the specified INDEX. The index refers to the index number shown in the displayed person list. The index must be a positive integer 1, 2, 3, &#8230;&#8203;</p>
 </li>
 <li>
 <p><code>TIME</code> must already exist in the student&#8217;s tuition timings.</p>
-</li>
-<li>
-<p>The student with the name <code>NAME</code> will have the tuition timing <code>TIME</code> deleted.</p>
 </li>
 </ul>
 </div>
@@ -1155,8 +1149,8 @@ Adds the tuition timing for John Doe that is on Monday which starts at 1300hour 
 <div class="ulist">
 <ul>
 <li>
-<p><code>deleteTime n/John Doe ts/mon 1300 1500</code><br>
-Deletes the tuition timing for John Doe that is on Monday which starts at 1300hour and ends at 1500hour.</p>
+<p><code>deleteTime 1 ts/mon 1300 1500</code><br>
+Deletes the tuition timing that is on Monday which starts on 1300hour and ends on 1500hour for the 1st person in the address book.</p>
 </li>
 </ul>
 </div>
@@ -1202,8 +1196,8 @@ There is no need to save manually.</p>
 e.g. <code>add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 el/JC 1 g/FinalExam 85</code></p>
 </li>
 <li>
-<p><strong>AddTime</strong> : <code>addtime n/NAME ts/TIME</code><br>
-e.g. <code>addtime n/James Ho ts/mon 1300 1500</code></p>
+<p><strong>AddTime</strong> : <code>addTime INDEX ts/TIME</code><br>
+e.g. <code>addTime 1 ts/mon 1300 1500</code></p>
 </li>
 <li>
 <p><strong>Clear</strong> : <code>clear</code></p>
@@ -1213,8 +1207,8 @@ e.g. <code>addtime n/James Ho ts/mon 1300 1500</code></p>
 e.g. <code>delete 3</code></p>
 </li>
 <li>
-<p><strong>DeleteTime</strong> : <code>deletetime n/NAME ts/TIME</code><br>
-e.g. <code>deletetime n/James Ho ts/mon 1300 1500</code></p>
+<p><strong>DeleteTime</strong> : <code>deleteTime INDEX ts/TIME</code><br>
+e.g. <code>deleteTime 1 ts/mon 1300 1500</code></p>
 </li>
 <li>
 <p><strong>Edit</strong> : <code>edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [t/TAG]&#8230;&#8203;</code><br>
@@ -1264,4 +1258,4 @@ e.g.<code>select 2</code></p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-07 13:15:39 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-07 13:16:06 UTC</div></div></div></body></html>
