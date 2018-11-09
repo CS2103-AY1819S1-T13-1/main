@@ -33,12 +33,13 @@
 <li><a href="#find-feature">3.2. Find Feature</a></li>
 <li><a href="#grades-feature">3.3. Grades Feature</a></li>
 <li><a href="#earnings-feature">3.4. Earnings Feature</a></li>
-<li><a href="#time-feature">3.5. Time Feature</a></li>
-<li><a href="#addition-of-tuition-time-feature">3.6. Addition of Tuition Time feature</a></li>
-<li><a href="#deletion-of-tuition-time-feature">3.7. Deletion of Tuition Time feature</a></li>
-<li><a href="#proposed-data-encryption">3.8. [Proposed] Data Encryption</a></li>
-<li><a href="#logging">3.9. Logging</a></li>
-<li><a href="#Implementation-Configuration">3.10. Configuration</a></li>
+<li><a href="#promote-feature">3.5. Promote Feature</a></li>
+<li><a href="#time-feature">3.6. Time Feature</a></li>
+<li><a href="#addition-of-tuition-time-feature">3.7. Addition of Tuition Time feature</a></li>
+<li><a href="#deletion-of-tuition-time-feature">3.8. Deletion of Tuition Time feature</a></li>
+<li><a href="#proposed-data-encryption">3.9. [Proposed] Data Encryption</a></li>
+<li><a href="#logging">3.10. Logging</a></li>
+<li><a href="#Implementation-Configuration">3.11. Configuration</a></li>
 </ul>
 </li>
 <li><a href="#documentation">4. Documentation</a>
@@ -900,17 +901,12 @@ between a period of time. A <code>Fee</code> class has been added to the list of
 <div class="ulist">
 <ul>
 <li>
-<p>The earnings command accepts two arguments, one being the beginning date and the
-other the ending date. The total tuition fees earned between the range of dates will be displayed.</p>
+<p>The earnings command accepts two arguments, the first being the beginning date followed by
+the ending date. The total tuition fees earned between the range of dates will be displayed.</p>
 </li>
 <li>
-<p>Each student&#8217;s tuition fee per hour is also displayed on the PersonCard GUI. The tuition
+<p>Each student&#8217;s educational level and tuition fee per hour are also displayed on the PersonCard GUI. The tuition
 fee of an individual student is determined by his or her educational level and grade.</p>
-<div class="imageblock">
-<div class="content">
-<img src="images/PersonCardExample.png" alt="PersonCardExample" width="250">
-</div>
-</div>
 </li>
 <li>
 <p>The earnings command word and two arguments which contains a start and end date are taken as an
@@ -936,7 +932,21 @@ the user.</p>
 </div>
 <div class="sect3">
 <h4 id="future-implementation-3"><a class="link" href="#future-implementation-3">3.4.2. Future Implementation</a></h4>
-
+<div class="ulist">
+<ul>
+<li>
+<p>Implement an option to allow tutors to assign tuition fees to students rather than fixing it based on the
+market rate of student&#8217;s educational level and grade.</p>
+</li>
+<li>
+<p>To be able to calculate past earnings, taking into account that certain students may have
+changed their tuition time slots.</p>
+</li>
+<li>
+<p>Calculate tuition earnings based on attendance, including extra lessons.</p>
+</li>
+</ul>
+</div>
 </div>
 <div class="sect3">
 <h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">3.4.3. Design considerations</a></h4>
@@ -949,10 +959,24 @@ the user.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: Gives users a less restrictive option to calculate tuition fees earned.</p>
+<p>Pros:</p>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Gives users a less restrictive option to calculate tuition fees earned.</p>
+</li>
+</ol>
+</div>
 </li>
 <li>
-<p>Cons: Harder to implement.</p>
+<p>Cons:</p>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Harder to implement.</p>
+</li>
+</ol>
+</div>
 </li>
 </ul>
 </div>
@@ -962,10 +986,28 @@ the user.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: Easier to implement.</p>
+<p>Pros:</p>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Easier to implement.</p>
 </li>
 <li>
-<p>Cons: Users are restricted to obtaining only tuition fees earned on a monthly basis.</p>
+<p>Allow accurate retrieval of past earnings in the event that a student&#8217;s time slot changed as monthly earnings can be calculated
+and stored.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Cons:</p>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Users are restricted to obtaining fees earned only in period of months.</p>
+</li>
+</ol>
+</div>
 </li>
 </ul>
 </div>
@@ -976,9 +1018,120 @@ the user.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="time-feature"><a class="link" href="#time-feature">3.5. Time Feature</a></h3>
+<h3 id="promote-feature"><a class="link" href="#promote-feature">3.5. Promote Feature</a></h3>
 <div class="sect3">
 <h4 id="current-implementation-5"><a class="link" href="#current-implementation-5">3.5.1. Current Implementation</a></h4>
+<div class="paragraph">
+<p>The promote feature has been implemented to allow users to manually promote his/her students to the next
+educational grade. The promote command can either promote all students stored in TutorPal, or selectively through the index of students.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>PromoteCommandParser</code> parses the arguments to determine which command to be returned.</p>
+</li>
+<li>
+<p>The former is facilitated by the <code>PromoteAllCommand</code>.</p>
+</li>
+<li>
+<p>The latter is facilitated by the <code>PromoteIndividualCommand</code></p>
+</li>
+<li>
+<p>Both command classes are subclasses of <code>PromoteCommand</code>.</p>
+</li>
+<li>
+<p>Both subclasses inherit the <code>PromoteCommand#createPromotedPerson()</code> and <code>PromoteCommand#getNumberOfGraduatedStudents()</code>
+methods and implements their own overridden <code>execute()</code> function.</p>
+</li>
+<li>
+<p>As the promote feature do not promote students across educational levels (e.g. Primary to Secondary), a "Graduated" tag
+is assigned to a student if the promote function is called on a student who is in his/her final year.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="future-implementation-4"><a class="link" href="#future-implementation-4">3.5.2. Future Implementation</a></h4>
+<div class="paragraph">
+<p>Implement a function to allow automated promotion of all students in TutorPal at the beginning of the year and
+allow users to configure TutorPal the promote feature to be automatic or manual.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">3.5.3. Design considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-promote-feature-to-be-automated-by-time-or-by-manual-user-input"><a class="link" href="#aspect-promote-feature-to-be-automated-by-time-or-by-manual-user-input">Aspect: Promote feature to be automated by time or by manual user input</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Manual user input</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros:</p>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Easier to implement.</p>
+</li>
+<li>
+<p>Prevent undesired situations like promoting all students if system time is set to a new year unintentionally.</p>
+</li>
+<li>
+<p>Provides tutors with higher autonomy in editing student information (e.g. if students retain).</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Cons:</p>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Some users may prefer automatic promotion.</p>
+</li>
+</ol>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Automatic promotion</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros:</p>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Convenient for users (subjective).</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Cons:</p>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Undesirable side effects like unintended promotion of student if system time is changed.</p>
+</li>
+</ol>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="time-feature"><a class="link" href="#time-feature">3.6. Time Feature</a></h3>
+<div class="sect3">
+<h4 id="current-implementation-6"><a class="link" href="#current-implementation-6">3.6.1. Current Implementation</a></h4>
 <div class="ulist">
 <ul>
 <li>
@@ -997,7 +1150,7 @@ the user.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">3.5.2. Design Considerations</a></h4>
+<h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">3.6.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-data-structure-to-support-the-time-attribute"><a class="link" href="#aspect-data-structure-to-support-the-time-attribute">Aspect: Data structure to support the time attribute</a></h5>
 <div class="ulist">
@@ -1034,9 +1187,9 @@ the user.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="addition-of-tuition-time-feature"><a class="link" href="#addition-of-tuition-time-feature">3.6. Addition of Tuition Time feature</a></h3>
+<h3 id="addition-of-tuition-time-feature"><a class="link" href="#addition-of-tuition-time-feature">3.7. Addition of Tuition Time feature</a></h3>
 <div class="sect3">
-<h4 id="current-implementation-6"><a class="link" href="#current-implementation-6">3.6.1. Current Implementation</a></h4>
+<h4 id="current-implementation-7"><a class="link" href="#current-implementation-7">3.7.1. Current Implementation</a></h4>
 <div class="ulist">
 <ul>
 <li>
@@ -1072,7 +1225,7 @@ the user.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="future-implementation-4"><a class="link" href="#future-implementation-4">3.6.2. Future Implementation</a></h4>
+<h4 id="future-implementation-5"><a class="link" href="#future-implementation-5">3.7.2. Future Implementation</a></h4>
 <div class="ulist">
 <ul>
 <li>
@@ -1086,7 +1239,7 @@ the user.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">3.6.3. Design Considerations</a></h4>
+<h4 id="design-considerations-5"><a class="link" href="#design-considerations-5">3.7.3. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="alternative-1-current-choice-arraylist-s-add-command-is-used-for-the-addition-of-the-time-into-the-time-array-list"><a class="link" href="#alternative-1-current-choice-arraylist-s-add-command-is-used-for-the-addition-of-the-time-into-the-time-array-list">Alternative 1(current choice):** ArrayList&#8217;s add command is used for the addition of the time into the time array list.</a></h5>
 <div class="ulist">
@@ -1116,9 +1269,9 @@ the user.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="deletion-of-tuition-time-feature"><a class="link" href="#deletion-of-tuition-time-feature">3.7. Deletion of Tuition Time feature</a></h3>
+<h3 id="deletion-of-tuition-time-feature"><a class="link" href="#deletion-of-tuition-time-feature">3.8. Deletion of Tuition Time feature</a></h3>
 <div class="sect3">
-<h4 id="current-implementation-7"><a class="link" href="#current-implementation-7">3.7.1. Current Implementation</a></h4>
+<h4 id="current-implementation-8"><a class="link" href="#current-implementation-8">3.8.1. Current Implementation</a></h4>
 <div class="ulist">
 <ul>
 <li>
@@ -1137,7 +1290,7 @@ the user.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="future-implementation-5"><a class="link" href="#future-implementation-5">3.7.2. Future Implementation</a></h4>
+<h4 id="future-implementation-6"><a class="link" href="#future-implementation-6">3.8.2. Future Implementation</a></h4>
 <div class="ulist">
 <ul>
 <li>
@@ -1152,20 +1305,20 @@ the user.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">3.8. [Proposed] Data Encryption</a></h3>
+<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">3.9. [Proposed] Data Encryption</a></h3>
 <div class="paragraph">
 <p><em>{Explain here how the data encryption feature will be implemented}</em></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">3.9. Logging</a></h3>
+<h3 id="logging"><a class="link" href="#logging">3.10. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.10, &#8220;Configuration&#8221;</a>)</p>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.11, &#8220;Configuration&#8221;</a>)</p>
 </li>
 <li>
 <p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
@@ -1196,7 +1349,7 @@ the user.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.10. Configuration</a></h3>
+<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.11. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g App name, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
@@ -3317,4 +3470,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-08 07:00:59 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-09 14:43:23 UTC</div></div></div></body></html>
