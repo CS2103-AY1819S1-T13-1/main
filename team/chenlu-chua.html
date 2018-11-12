@@ -20,22 +20,7 @@
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Major enhancement</strong>: implemented the <strong>earnings feature</strong></p>
-<div class="ulist">
-<ul>
-<li>
-<p>What it does: Allows tutors to calculate the amount of money earned from giving tuition between a range of dates.</p>
-</li>
-<li>
-<p>Justification: As money is perhaps the most important motivation for becoming a tuition teacher, it is important to calculate the amount
-of money earned. This feature allows tutor to ensure that future earnings are sufficient, and also assist the tutor in
-planning and organizing current and future student intakes.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>Major enhancement</strong>: implemented the <strong>promote feature</strong></p>
+<p><strong>Major enhancement</strong>: implemented the <strong>promote feature</strong> to allow tutor to promote multiple students simultaneously.</p>
 <div class="ulist">
 <ul>
 <li>
@@ -43,13 +28,35 @@ planning and organizing current and future student intakes.</p>
 can choose to promote all students or selectively.</p>
 </li>
 <li>
-<p>Justification: The decision to not automate the promotion of students as a year passed is deliberate.
+<p>Justification: This function is an efficient and yet flexible solution to swiftly increase the
+educational grade of students as a year passes.
+The decision to <strong>not automate the promotion of students</strong> is deliberate.
 This provides the users with a higher level of autonomy when using TutorPal.<br>
 In providing such feature instead of relying on promoting the students stored in TutorPal automatically,
-undesirable outcomes like promoting all students when the system time is changed to other years are avoided.</p>
+undesirable outcomes like promoting all students when the system time is changed to other years are avoided.
+As a private tutor, it is not uncommon to encounter parents who wish for their children to begin tuition lessons
+even before the start of an academic year. A situation like this is an example of why greater flexibility is more
+beneficial to a user, even if it means taking an additional step to manually promote the students in TutorPal.</p>
 </li>
 </ul>
 </div>
+</li>
+<li>
+<p><strong>Minor enhancement</strong>: implemented the <strong>earnings feature</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>What it does: Allows tutors to calculate the amount of money earned from giving tuition between a range of dates.</p>
+</li>
+<li>
+<p>Justification: It is important to calculate and keep track of his/her income. This feature allows tutor to ensure that
+future earnings are sufficient, and also assist the tutor in planning and organizing current and future student intakes.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Code contributed</strong>: <a href="https://nus-cs2103-ay1819s1.github.io/cs2103-dashboard/#=undefined&amp;search=chenlu-chua" class="bare">https://nus-cs2103-ay1819s1.github.io/cs2103-dashboard/#=undefined&amp;search=chenlu-chua</a></p>
 </li>
 <li>
 <p><strong>Other contributions</strong>:</p>
@@ -89,7 +96,7 @@ undesirable outcomes like promoting all students when the system time is changed
 allow users to store the educational level of students.</p>
 </li>
 <li>
-<p>Implemented tuition fees of students. Tuition fees are based on student&#8217;s
+<p>Implemented tuition fees attribute to student. Tuition fees are based on student&#8217;s
 educational level and grade, irrespective of the subject(s) taught to them.</p>
 </li>
 </ul>
@@ -99,9 +106,6 @@ educational level and grade, irrespective of the subject(s) taught to them.</p>
 <p>Documentation:</p>
 <div class="ulist">
 <ul>
-<li>
-<p>Did cosmetic tweaks to existing contents of the User Guide and README.</p>
-</li>
 <li>
 <p>Removed obsolete AB4 information and updated relevant documents with TutorPal project.</p>
 </li>
@@ -331,6 +335,11 @@ methods and implements their own overridden <code>execute()</code> function.</p>
 <li>
 <p>As the promote feature do not promote students across educational levels (e.g. Primary to Secondary), a "Graduated" tag
 is assigned to a student if the promote function is called on a student who is in his/her final year.</p>
+<div class="imageblock">
+<div class="content">
+<img src="../images/GraduateExample.png" alt="GraduateExample" width="170">
+</div>
+</div>
 </li>
 </ul>
 </div>
@@ -430,6 +439,11 @@ the ending date. The total tuition fees earned between the range of dates will b
 <li>
 <p>Each student&#8217;s educational level and tuition fee per hour are also displayed on the PersonCard GUI. The tuition
 fee of an individual student is determined by his or her educational level and grade.</p>
+<div class="imageblock">
+<div class="content">
+<img src="../images/PersonCardExample.png" alt="PersonCardExample" width="170">
+</div>
+</div>
 </li>
 <li>
 <p>The earnings command word and two arguments which contains a start and end date are taken as an
@@ -541,4 +555,4 @@ and stored.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 13:07:47 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 13:42:13 UTC</div></div></div></body></html>
