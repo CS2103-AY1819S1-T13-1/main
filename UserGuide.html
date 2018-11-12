@@ -33,17 +33,18 @@
 <li><a href="#filter-students-by-grade-code-filterbygrade-code">3.18. Filter students by grade: <code>filterByGrade</code></a></li>
 <li><a href="#filter-students-by-time-slot-code-filterbytime-code">3.19. Filter students by time slot: <code>filterByTime</code></a></li>
 <li><a href="#give-suggestions-to-students-code-suggestion-code">3.20. Give Suggestions to students: <code>suggestion</code></a></li>
-<li><a href="#listing-entered-commands-code-history-code">3.21. Listing entered commands : <code>history</code></a></li>
-<li><a href="#grade">3.22. Grades attribute</a></li>
-<li><a href="#promote-students-stored-in-tutorpal-code-promote-code">3.23. Promote students stored in TutorPal : <code>promote</code></a></li>
-<li><a href="#analyzing-grades-commands-code-coming-in-v2-0-code">3.24. Analyzing grades commands <code>[coming in v2.0]</code></a></li>
-<li><a href="#retrieving-earnings">3.25. Retrieving earnings</a></li>
-<li><a href="#undoing-previous-command-code-undo-code">3.26. Undoing previous command : <code>undo</code></a></li>
-<li><a href="#redoing-the-previously-undone-command-code-redo-code">3.27. Redoing the previously undone command : <code>redo</code></a></li>
-<li><a href="#clearing-all-entries-code-clear-code">3.28. Clearing all entries : <code>clear</code></a></li>
-<li><a href="#exiting-the-program-code-exit-code">3.29. Exiting the program : <code>exit</code></a></li>
-<li><a href="#saving-the-data">3.30. Saving the data</a></li>
-<li><a href="#encrypting-data-files-code-coming-in-v2-0-code">3.31. Encrypting data files <code>[coming in v2.0]</code></a></li>
+<li><a href="#give-suggestions-to-students-code-suggestionbyindex-code">3.21. Give Suggestions to students: <code>suggestionByIndex</code></a></li>
+<li><a href="#listing-entered-commands-code-history-code">3.22. Listing entered commands : <code>history</code></a></li>
+<li><a href="#grade">3.23. Grades attribute</a></li>
+<li><a href="#promote-students-stored-in-tutorpal-code-promote-code">3.24. Promote students stored in TutorPal : <code>promote</code></a></li>
+<li><a href="#analyzing-grades-commands-code-coming-in-v2-0-code">3.25. Analyzing grades commands <code>[coming in v2.0]</code></a></li>
+<li><a href="#retrieving-earnings">3.26. Retrieving earnings</a></li>
+<li><a href="#undoing-previous-command-code-undo-code">3.27. Undoing previous command : <code>undo</code></a></li>
+<li><a href="#redoing-the-previously-undone-command-code-redo-code">3.28. Redoing the previously undone command : <code>redo</code></a></li>
+<li><a href="#clearing-all-entries-code-clear-code">3.29. Clearing all entries : <code>clear</code></a></li>
+<li><a href="#exiting-the-program-code-exit-code">3.30. Exiting the program : <code>exit</code></a></li>
+<li><a href="#saving-the-data">3.31. Saving the data</a></li>
+<li><a href="#encrypting-data-files-code-coming-in-v2-0-code">3.32. Encrypting data files <code>[coming in v2.0]</code></a></li>
 </ul>
 </li>
 <li><a href="#faq">4. FAQ</a></li>
@@ -349,7 +350,7 @@ Format: <code>editTime n/NAME ts/OLD_TIME_SLOT ts/NEW_TIME_SLOT</code></p>
 <h3 id="edit-certain-class-time-of-certain-student-code-exchangetime-code"><a class="link" href="#edit-certain-class-time-of-certain-student-code-exchangetime-code">3.7. Edit certain class time of certain student: <code>exchangeTime</code></a></h3>
 <div class="paragraph">
 <p>Exchange class time between two students who are in the same grade of same education level<br>
-Format: <code>exchangeTime NAME_A A_TIME_SLOT_ORDINAL_NUMBER NAME_B B_TIME_SLOT_ORDINAL_NUMBER</code></p>
+Format: <code>exchangeTime A_TIME_SLOT_ORDINAL_NUMBER B_TIME_SLOT_ORDINAL_NUMBER n/NAME_A n/NAME_B</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -368,7 +369,7 @@ Format: <code>exchangeTime NAME_A A_TIME_SLOT_ORDINAL_NUMBER NAME_B B_TIME_SLOT_
 <div class="ulist">
 <ul>
 <li>
-<p><code>exchangeTime Alice 0 Bob 0</code>
+<p><code>exchangeTime 0 0 Alice Bob</code>
 Exchange Alice first time slot and Bob first time slot.</p>
 </li>
 </ul>
@@ -895,7 +896,7 @@ returns a list of students whose has grade within 50 and 100 (both 50 and 100 ar
 <h3 id="filter-students-by-time-slot-code-filterbytime-code"><a class="link" href="#filter-students-by-time-slot-code-filterbytime-code">3.19. Filter students by time slot: <code>filterByTime</code></a></h3>
 <div class="paragraph">
 <p>List the student who has class at the given time.<br>
-Format: <code>filterByTime TIME_SLOT</code></p>
+Format: <code>filterByTime ts/TIME_SLOT</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -914,7 +915,7 @@ Format: <code>filterByTime TIME_SLOT</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>filterByTime mon 1300 1400</code><br>
+<p><code>filterByTime ts/mon 1300 1400</code><br>
 returns the student whose has tuition time in monday 1300-1400.</p>
 </li>
 </ul>
@@ -982,7 +983,51 @@ No suggestion gonna be shown.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="listing-entered-commands-code-history-code"><a class="link" href="#listing-entered-commands-code-history-code">3.21. Listing entered commands : <code>history</code></a></h3>
+<h3 id="give-suggestions-to-students-code-suggestionbyindex-code"><a class="link" href="#give-suggestions-to-students-code-suggestionbyindex-code">3.21. Give Suggestions to students: <code>suggestionByIndex</code></a></h3>
+<div class="paragraph">
+<p>Give Suggestions to students<br>
+Format: <code>suggestion index (base 1)</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>result: show the suggestions.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>suggestion 1</code>
+Show the suggestion to the first student in the list according to his or her performance.</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>If the student has not taken any exam before
+No suggestion gonna be shown.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="listing-entered-commands-code-history-code"><a class="link" href="#listing-entered-commands-code-history-code">3.22. Listing entered commands : <code>history</code></a></h3>
 <div class="paragraph">
 <p>Lists all the commands that you have entered in reverse chronological order.<br>
 Format: <code>history</code></p>
@@ -1003,7 +1048,7 @@ Format: <code>history</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="grade"><a class="link" href="#grade">3.22. Grades attribute</a></h3>
+<h3 id="grade"><a class="link" href="#grade">3.23. Grades attribute</a></h3>
 <div class="paragraph">
 <p>Grade attribute consists of two parts, exam name and exam score.</p>
 </div>
@@ -1068,7 +1113,7 @@ Format: <code>history</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="promote-students-stored-in-tutorpal-code-promote-code"><a class="link" href="#promote-students-stored-in-tutorpal-code-promote-code">3.23. Promote students stored in TutorPal : <code>promote</code></a></h3>
+<h3 id="promote-students-stored-in-tutorpal-code-promote-code"><a class="link" href="#promote-students-stored-in-tutorpal-code-promote-code">3.24. Promote students stored in TutorPal : <code>promote</code></a></h3>
 <div class="paragraph">
 <p>Promotes educational grade of the selected student(s)<br>
 Format: <code>promote [INDEX]&#8230;&#8203;</code></p>
@@ -1153,7 +1198,7 @@ according to their needs.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="analyzing-grades-commands-code-coming-in-v2-0-code"><a class="link" href="#analyzing-grades-commands-code-coming-in-v2-0-code">3.24. Analyzing grades commands <code>[coming in v2.0]</code></a></h3>
+<h3 id="analyzing-grades-commands-code-coming-in-v2-0-code"><a class="link" href="#analyzing-grades-commands-code-coming-in-v2-0-code">3.25. Analyzing grades commands <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
 <p>Analyze the grades of students<br>
 Format: <code>grades ACTION [parameters]</code></p>
@@ -1185,7 +1230,7 @@ Format: <code>grades ACTION [parameters]</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="retrieving-earnings"><a class="link" href="#retrieving-earnings">3.25. Retrieving earnings</a></h3>
+<h3 id="retrieving-earnings"><a class="link" href="#retrieving-earnings">3.26. Retrieving earnings</a></h3>
 <div class="paragraph">
 <p>Retrieve the total earnings from tuition fees from all students between a range of date in the current year.<br>
 Format: <code>earnings START_DATE END_DATE</code></p>
@@ -1236,7 +1281,7 @@ This command returns the total amount of tuition fees earned between 2 April 201
 </div>
 </div>
 <div class="sect2">
-<h3 id="undoing-previous-command-code-undo-code"><a class="link" href="#undoing-previous-command-code-undo-code">3.26. Undoing previous command : <code>undo</code></a></h3>
+<h3 id="undoing-previous-command-code-undo-code"><a class="link" href="#undoing-previous-command-code-undo-code">3.27. Undoing previous command : <code>undo</code></a></h3>
 <div class="paragraph">
 <p>Restores the address book to the state before the previous <em>undoable</em> command was executed.<br>
 Format: <code>undo</code></p>
@@ -1281,7 +1326,7 @@ The <code>undo</code> command fails as there are no undoable commands executed p
 </div>
 </div>
 <div class="sect2">
-<h3 id="redoing-the-previously-undone-command-code-redo-code"><a class="link" href="#redoing-the-previously-undone-command-code-redo-code">3.27. Redoing the previously undone command : <code>redo</code></a></h3>
+<h3 id="redoing-the-previously-undone-command-code-redo-code"><a class="link" href="#redoing-the-previously-undone-command-code-redo-code">3.28. Redoing the previously undone command : <code>redo</code></a></h3>
 <div class="paragraph">
 <p>Reverses the most recent <code>undo</code> command.<br>
 Format: <code>redo</code></p>
@@ -1313,28 +1358,28 @@ The <code>redo</code> command fails as there are no <code>undo</code> commands e
 </div>
 </div>
 <div class="sect2">
-<h3 id="clearing-all-entries-code-clear-code"><a class="link" href="#clearing-all-entries-code-clear-code">3.28. Clearing all entries : <code>clear</code></a></h3>
+<h3 id="clearing-all-entries-code-clear-code"><a class="link" href="#clearing-all-entries-code-clear-code">3.29. Clearing all entries : <code>clear</code></a></h3>
 <div class="paragraph">
 <p>Clears all entries from the address book.<br>
 Format: <code>clear</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.29. Exiting the program : <code>exit</code></a></h3>
+<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.30. Exiting the program : <code>exit</code></a></h3>
 <div class="paragraph">
 <p>Exits the program.<br>
 Format: <code>exit</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.30. Saving the data</a></h3>
+<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.31. Saving the data</a></h3>
 <div class="paragraph">
 <p>Address book data are saved in the hard disk automatically after any command that changes the data.<br>
 There is no need to save manually.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="encrypting-data-files-code-coming-in-v2-0-code"><a class="link" href="#encrypting-data-files-code-coming-in-v2-0-code">3.31. Encrypting data files <code>[coming in v2.0]</code></a></h3>
+<h3 id="encrypting-data-files-code-coming-in-v2-0-code"><a class="link" href="#encrypting-data-files-code-coming-in-v2-0-code">3.32. Encrypting data files <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
 <p><em>{explain how the user can enable/disable data encryption}</em></p>
 </div>
@@ -1447,4 +1492,4 @@ e.g.<code>suggestion Alice</code></p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 04:44:55 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 07:36:15 UTC</div></div></div></body></html>
