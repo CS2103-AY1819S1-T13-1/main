@@ -1,0 +1,621 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>Liu Zhaoyu - Project Portfolio</title><link rel="stylesheet" href="../stylesheets/gh-pages.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="../stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="../index.html">TutorPal</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="../UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="../DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link active" href="../AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="../ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/CS2103-AY1819S1-T13-1/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>Liu Zhaoyu - Project Portfolio</h1></div><div id="content"><div class="sect1">
+<h2 id="project-tutorpal"><a class="link" href="#project-tutorpal">PROJECT: TutorPal</a></h2>
+<div class="sectionbody">
+<hr>
+</div>
+</div>
+<div class="sect1">
+<h2 id="overview"><a class="link" href="#overview">Overview</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>TutorPal is a desktop application used by private home tutors for managing student information. The useage is primarily through CLI. It is written in Java.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="summary-of-contributions"><a class="link" href="#summary-of-contributions">Summary of contributions</a></h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Major enhancement</strong>: enhanced <strong>FindCommand</strong> to make it support fuzzy matching</p>
+<div class="ulist">
+<ul>
+<li>
+<p>What it does: allows the user to find Person by name and supports fuzzy matching, which means even if the user has a small typo, it can still find Persons with similar names.</p>
+</li>
+<li>
+<p>Justification: This feature enhancement makes this command more practical because sometimes users may type wrongly during searching. However, fuzzy matching allows small mistakes in typing and makes searching much easier.</p>
+</li>
+<li>
+<p>Highlights: This search allows fuzzy matching (with Levenshtein Distance &lt; 3) only when the length of the keyword is greater than 3. If the length of the keyword you type in is smaller or equal to 3, the keyword must be exactly the same to expected</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Major enhancement</strong>: extended FindCommand to <strong>FindAddressCommand</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>What it does: allows the user to find all the students who live in certain area by entering the keywords. When the user types one or more keywords of an address, this command can find Persons whose addresses contain all the given keywords. This command also support fuzzy matching, which means even if the user has a small typo, it can still find Persons with similar address.</p>
+</li>
+<li>
+<p>Justification: This feature further extends the find command. If a tutor want to know all the students who live in a certain area in order to better arrange the classes, this command will help. Finding by keywords and fuzzy matching make this command more practical and easier for searching because even if the users only remember a few keywords of an address or have some typos during searching, this command can still find the Persons they want.</p>
+</li>
+<li>
+<p>Highlights: This search is case insensitive. This search allows fuzzy matching on long keywords (long keyword means the keyword whose length is greater than 3). This search will not support fuzzy matching when the keywords are too short (≤ 3) or contain numbers. The order of the keywords does not matter.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Major enhancement</strong>: extended FindCommand to <strong>FindEmailCommand</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>What it does: allows the user to find Person by email and support fuzzy matching, which means even if the user has a small typo, it can still find the Person with similar email.</p>
+</li>
+<li>
+<p>Justification: This feature further extends the find command. If a tutor want to find a Person by his/her email, this command will help. Besides, fuzzy matching makes this command more practical and easier for searching because some minor mistakes during typing are allowed.</p>
+</li>
+<li>
+<p>Highlights: This search is case insensitive. This search allows fuzzy matching (with Levenshtein Distance &lt; 4).</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Major enhancement</strong>: extended FindCommand to <strong>FindPhoneCommand</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>What it does: allows the user to find Person by phone number and support fuzzy matching, which means even if the user has a small typo, it can still find the Person with similar phone number.</p>
+</li>
+<li>
+<p>Justification: This feature further extends the find command. If a tutor want to find a Person by his/her phone number, this command will help. Besides, fuzzy matching makes this command more practical and easier for searching because some minor mistakes during typing are allowed.</p>
+</li>
+<li>
+<p>Highlights: This search allows fuzzy matching (with Levenshtein Distance &lt; 3).</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Minor enhancement</strong>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Built tests case for <strong>Find</strong> related commands and UI.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Code contributed</strong>: [<a href="https://github.com">Functional code</a>] [<a href="https://github.com">Test code</a>] <em>{give links to collated code files}</em></p>
+</li>
+<li>
+<p><strong>Other contributions</strong>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Project management:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Set milestones for <code>v1.2 - v1.4</code> on GitHub</p>
+</li>
+<li>
+<p>Opened issues for <code>v1.2 - v1.4</code> on GitHub</p>
+</li>
+<li>
+<p>Set up milestone deadlines, close issues accordingly on GitHub</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Enhancements to existing features:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Modified the UI and added related test case (Pull requests <a href="https://github.com/CS2103-AY1819S1-T13-1/main/pull/169">#169</a>, <a href="https://github.com/CS2103-AY1819S1-T13-1/main/pull/178">#178</a>)</p>
+</li>
+<li>
+<p>Wrote additional tests for existing features to increase coverage (Pull requests <a href="https://github.com/CS2103-AY1819S1-T13-1/main/pull/101">#101</a>)</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Documentation:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Modified the format and changed some inaccurate expressions for the whole User Guide: <a href="https://github.com/CS2103-AY1819S1-T13-1/main/pull/167">#167</a></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Community:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>PRs reviewed (with non-trivial review comments): <a href="https://github.com/CS2103-AY1819S1-T13-1/main/pull/166">#166</a>, <a href="https://github.com/CS2103-AY1819S1-T13-1/main/pull/175">#175</a>, <a href="https://github.com/CS2103-AY1819S1-T13-1/main/pull/182">#182</a>, <a href="https://github.com/CS2103-AY1819S1-T13-1/main/pull/183">#183</a></p>
+</li>
+<li>
+<p>Reported bugs and suggestions for other teams in the class (examples:  <a href="https://github.com/CS2103-AY1819S1-W10-2/main/issues/257">#257</a>)</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="contributions-to-the-user-guide"><a class="link" href="#contributions-to-the-user-guide">Contributions to the User Guide</a></h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the User Guide. They showcase my ability to write documentation targeting end-users.</em></p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect2">
+<h3 id="locating-persons-by-name-code-find-code"><a class="link" href="#locating-persons-by-name-code-find-code">Locating persons by name: <code>find</code></a></h3>
+<div class="paragraph">
+<p>Finds persons whose names contain any of the given keywords.<br>
+Format: <code>find KEYWORD [MORE_KEYWORDS]&#8230;&#8203;</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The search is case insensitive.<br>
+e.g. <code>hans</code> will match <code>Hans</code></p>
+</li>
+<li>
+<p>The search allows fuzzy matching when the length of the keyword is greater than 3 (with Levenshtein Distance &lt; 3).<br>
+e.g. <code>challotto</code> will match <code>Charlotte</code></p>
+</li>
+<li>
+<p>If the length of the keyword you type in is smaller or equal to 3, the keyword must be exactly the same to expected (but still case insensitive).<br>
+e.g. <code>Lo</code> will not match <code>Li</code></p>
+</li>
+<li>
+<p>The order of the keywords does not matter.<br>
+e.g. <code>Hans Bo</code> will match <code>Bo Hans</code></p>
+</li>
+<li>
+<p>Only the name is searched.</p>
+</li>
+<li>
+<p>Persons matching at least one keyword will be returned (i.e. <code>OR</code> search).<br>
+e.g. <code>Hans Bo</code> will return <code>Hans Gruber</code>, <code>Bo Yang</code></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>find John</code><br>
+Returns <code>john</code> and <code>John Doe</code></p>
+</li>
+<li>
+<p><code>find challotto</code><br>
+Returns <code>Charlotte Oliveiro</code></p>
+</li>
+<li>
+<p><code>find David Roy John</code><br>
+Returns any person having names <code>David</code>, <code>Roy</code>, or <code>John</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="locating-persons-by-address-code-find-a-code"><a class="link" href="#locating-persons-by-address-code-find-a-code">Locating persons by address: <code>find/a</code></a></h3>
+<div class="paragraph">
+<p>Finds persons whose addresses contain all the given keywords.<br>
+Format: <code>find/a KEYWORD [MORE_KEYWORDS]&#8230;&#8203;</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The search will search for persons whose addresses contain all the keywords.<br>
+e.g. <code>Clementi</code> will find person <code>John Doe</code> whose address is <code>311, Clementi Ave 2, #02-25</code></p>
+</li>
+<li>
+<p>If the keywords match more than one person, all of these person will be returned.<br>
+e.g. <code>Serangoon</code> will return the persons whose addresses contain <code>Serangoon</code>, who are <code>Bernice Yu</code> and <code>David Li</code></p>
+</li>
+<li>
+<p>The search is case insensitive.<br>
+e.g <code>cLeMenTi</code> is same as <code>Clementi</code>, and <code>cLeMenTi</code> can also be used to find person <code>John Doe</code> whose address is <code>311, Clementi Ave 2, #02-25</code></p>
+</li>
+<li>
+<p>The search allows fuzzy matching on long keywords (long keyword means the keyword whose length is greater than 3).<br>
+e.g. <code>clenti</code> will be fuzzy matched with <code>Clementi</code>, and will find the person <code>John Doe</code> whose address is <code>311, Clementi Ave 2, #02-25</code></p>
+</li>
+<li>
+<p>The search will not support fuzzy matching when the keywords are too short (≤ 3) or contain numbers.<br>
+e.g. <code>Clementi Avo</code> does not match <code>Clementi Ave</code> because keyword <code>Avo</code> is short and will not be allowed to use fuzzy matching, therefore, no person will be found</p>
+</li>
+<li>
+<p>The order of the keywords does not matter.<br>
+e.g. <code>Ave Clementi 2, 311, #02-25</code> will match <code>311, Clementi Ave 2, #02-25</code>, and will find the person <code>John Doe</code> whose address is <code>311, Clementi Ave 2, #02-25</code></p>
+</li>
+<li>
+<p>Only the address is searched.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>find/a B311, Clementi Ave 2, #02-25</code><br>
+Returns <code>John Doe</code></p>
+</li>
+<li>
+<p><code>find/a B311, CLEMENTI Ave 2, #02-25</code><br>
+Returns <code>John Doe</code> (case insensitive)</p>
+</li>
+<li>
+<p><code>find/a #02-25, Ave 2 Clementi, B311</code><br>
+Returns <code>John Doe</code> (the order of the keywords does not matter)</p>
+</li>
+<li>
+<p><code>find/a serangoon</code><br>
+Returns person whose addresses containing the keyword <code>Serangoon</code>, i.e. <code>Bernice Yu</code> and <code>David Li</code></p>
+</li>
+<li>
+<p><code>find/a srangon</code><br>
+Returns persons whose addresses containing the keyword <code>Serangoon</code>, i.e. <code>Bernice Yu</code> and <code>David Li</code> (fuzzy matching)</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="locating-persons-by-email-address-code-find-e-code"><a class="link" href="#locating-persons-by-email-address-code-find-e-code">Locating persons by email address: <code>find/e</code></a></h3>
+<div class="paragraph">
+<p>Finds a person through his/her email address.<br>
+Format: <code>find/e EMAIL [MORE_EMAILS]&#8230;&#8203;</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The search is case insensitive.<br>
+e.g <code>LIDaVid@example.com</code> will match <code>lidavid@example.com</code>, and will find person <code>David Li</code> whose email is <code>lidavid@example.com</code></p>
+</li>
+<li>
+<p>The search allows fuzzy matching (with Levenshtein Distance &lt; 4).<br>
+e.g.<code>lidavd@exmple.com</code> will match <code>lidavid@example.com</code>, and will find person <code>David Li</code> whose email is <code>lidavid@example.com</code></p>
+</li>
+<li>
+<p>Only the email is searched.</p>
+</li>
+<li>
+<p>Person matching the email will be returned.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>find/e <a href="mailto:John@example.com">John@example.com</a></code><br>
+Returns <code>John Doe</code> whose email address is <code>John@example.com</code></p>
+</li>
+<li>
+<p><code>find/e <a href="mailto:LIDavd@example.com">LIDavd@example.com</a></code><br>
+Returns <code>David Li</code> whose email address is <code>lidavid@example.com</code> (case insensitive)</p>
+</li>
+<li>
+<p><code>find/e <a href="mailto:lidavd@exmple.com">lidavd@exmple.com</a></code><br>
+Returns <code>David Li</code> whose email address is <code>lidavid@example.com</code> (fuzzy matching)</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="locating-persons-by-phone-number-code-find-p-code"><a class="link" href="#locating-persons-by-phone-number-code-find-p-code">Locating persons by phone number: <code>find/p</code></a></h3>
+<div class="paragraph">
+<p>Finds a person through his/her phone number.<br>
+Format: <code>find/p PHONE_NUMBER [MORE_PHONE_NUMBER]&#8230;&#8203;</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Only the phone number is searched.</p>
+</li>
+<li>
+<p>The search allows fuzzy matching (with Levenshtein Distance &lt; 3).<br>
+e.g. <code>123456</code> will match <code>12345678</code>, <code>12435678</code> will match <code>12345678</code></p>
+</li>
+<li>
+<p>Person matching the phone number will be returned.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>find/p 98765432</code><br>
+Returns <code>John Doe</code> whose phone number is <code>98765432</code></p>
+</li>
+<li>
+<p><code>find/p 9876543</code><br>
+Returns <code>John Doe</code> whose phone number is <code>98765432</code> (fuzzy matching)</p>
+</li>
+<li>
+<p><code>find/p 98765433</code><br>
+Returns <code>John Doe</code> whose phone number is <code>98765432</code> (fuzzy matching)</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="contributions-to-the-developer-guide"><a class="link" href="#contributions-to-the-developer-guide">Contributions to the Developer Guide</a></h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the Developer Guide. They showcase my ability to write technical documentation and the technical depth of my contributions to the project.</em></p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect2">
+<h3 id="Design-Ui"><a class="link" href="#Design-Ui">UI component</a></h3>
+<div class="imageblock">
+<div class="content">
+<img src="../images/UiClassDiagram.png" alt="UiClassDiagram" width="800">
+</div>
+<div class="title">Figure 1. Structure of the UI Component</div>
+</div>
+<div class="paragraph">
+<p><strong>API</strong> : <a href="{repoURL}/src/main/java/seedu/address/ui/Ui.java"><code>Ui.java</code></a></p>
+</div>
+<div class="paragraph">
+<p>The UI consists of a <code>MainWindow</code> that is made up of parts e.g.<code>CommandBox</code>, <code>ResultDisplay</code>, <code>PersonListPanel</code>, <code>StatusBarFooter</code>, <code>StudentPanel</code> etc. All these, including the <code>MainWindow</code>, inherit from the abstract <code>UiPart</code> class.</p>
+</div>
+<div class="paragraph">
+<p>The <code>UI</code> component uses JavaFx UI framework. The layout of these UI parts are defined in matching <code>.fxml</code> files that are in the <code>src/main/resources/view</code> folder. For example, the layout of the <a href="{repoURL}/src/main/java/seedu/address/ui/MainWindow.java"><code>MainWindow</code></a> is specified in <a href="{repoURL}/src/main/resources/view/MainWindow.fxml"><code>MainWindow.fxml</code></a></p>
+</div>
+<div class="paragraph">
+<p>The <code>UI</code> component,</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Executes user commands using the <code>Logic</code> component.</p>
+</li>
+<li>
+<p>Binds itself to some data in the <code>Model</code> so that the UI can auto-update when data in the <code>Model</code> change.</p>
+</li>
+<li>
+<p>Responds to events raised from various parts of the App and updates the UI accordingly.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="Design-Logic"><a class="link" href="#Design-Logic">Find Related Feature</a></h3>
+<div class="paragraph">
+<p>The find related features include four commands, which are <code>FindCommand</code>, <code>FindAddressCommand</code>, <code>FindEmailCommand</code>, and <code>FindPhoneCommand</code>. They support finding by name, address, email, and phone numbers.</p>
+</div>
+<div class="sect3">
+<h4 id="current-implementation"><a class="link" href="#current-implementation">Current Implementation</a></h4>
+<div class="sect4">
+<h5 id="find-command-code-find-keyword-more_keywords-code"><a class="link" href="#find-command-code-find-keyword-more_keywords-code">Find command (<code>find KEYWORD [MORE_KEYWORDS]&#8230;&#8203;</code>)</a></h5>
+<div class="paragraph">
+<p>The <code>find</code> command has been implemented to find students by their names.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The <code>find</code> command accepts one or more arguments, each argument represent a keyword.</p>
+</li>
+<li>
+<p>The <code>find</code> command finds persons whose names contain any of the given keywords.</p>
+</li>
+<li>
+<p>The number of students found will be displayed on the PersonCard GUI.</p>
+</li>
+<li>
+<p>All the keywords are put into a List&lt;String&gt; and converted to a stream. Perform .anyMatch(&#8230;&#8203;) on the keywords stream to find all the students whose names match any of the keywords.</p>
+</li>
+<li>
+<p>The matching process is case insensitive and support fuzzy matching. Fuzzy matching is achieved by applying Levenshtein Distance method. The condition for using fuzzy matching in this command is the length of the keyword is greater than 3 and if the condition is satisfied, we set the Levenshtein Distance to be less than 3, which means at most two differences.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/FindCommandLogicDiagram.png" alt="FindCommandLogicDiagram" width="800">
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="find-by-address-command-code-find-a-keyword-more_keywords-code"><a class="link" href="#find-by-address-command-code-find-a-keyword-more_keywords-code">Find by address command (<code>find/a KEYWORD [MORE_KEYWORDS]&#8230;&#8203;</code>)</a></h5>
+<div class="paragraph">
+<p>The <code>find/a</code> command has been implemented to find students by their address.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The <code>find/a</code> command accepts one or more arguments, each argument represent a keyword.</p>
+</li>
+<li>
+<p>The <code>find/a</code> command finds persons whose addresses contain all the given keywords.</p>
+</li>
+<li>
+<p>The number of students found will be displayed on the PersonCard GUI.</p>
+</li>
+<li>
+<p>All the keywords are put into a List&lt;String&gt; and converted to a stream. Perform .allMatch(&#8230;&#8203;) on the keywords stream to find all the students whose addresses match all the keywords.</p>
+</li>
+<li>
+<p>The matching process is case insensitive and support fuzzy matching. Fuzzy matching is achieved by applying Levenshtein Distance method. The condition for using fuzzy matching in this command is the length of the keyword is greater than 3 and if the condition is satisfied and the length of keyword is 4 to 7, we set the Levenshtein Distance to be less than 3; if the length of keyword is more than 8, we set the Levenshtein Distance to be less than 4.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/FindAddressCommandLogicDiagram.png" alt="FindAddressCommandLogicDiagram" width="800">
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="find-by-email-command-code-find-e-email-more_emails-code"><a class="link" href="#find-by-email-command-code-find-e-email-more_emails-code">Find by email command (<code>find/e EMAIL [MORE_EMAILS]&#8230;&#8203;</code>)</a></h5>
+<div class="paragraph">
+<p>The <code>find/e</code> command has been implemented to find students by their email.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The <code>find/e</code> command accepts one or more arguments, each argument represent an email address keyword.</p>
+</li>
+<li>
+<p>The <code>find/e</code> command finds persons whose emails are the same as any of the keywords.</p>
+</li>
+<li>
+<p>The number of students found will be displayed on the PersonCard GUI.</p>
+</li>
+<li>
+<p>All the keywords are put into a List&lt;String&gt; and converted to a stream. Perform .anyMatch(&#8230;&#8203;) on the keywords stream to find all the students whose emails match any of the keywords.</p>
+</li>
+<li>
+<p>The matching process is case insensitive and support fuzzy matching. Fuzzy matching is achieved by applying Levenshtein Distance method. We set the Levenshtein Distance to be less than 4, which means at most three differences.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/FindEmailCommandLogicDiagram.png" alt="FindEmailCommandLogicDiagram" width="800">
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="find-by-phone-number-command-code-find-p-phone_number-more_phone_numbers-code"><a class="link" href="#find-by-phone-number-command-code-find-p-phone_number-more_phone_numbers-code">Find by phone number command (<code>find/p PHONE_NUMBER [MORE_PHONE_NUMBERS]&#8230;&#8203;</code>)</a></h5>
+<div class="paragraph">
+<p>The <code>find/p</code> command has been implemented to find students by their phone number.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The <code>find/p</code> command accepts one or more arguments, each argument represent a phone number keyword.</p>
+</li>
+<li>
+<p>The <code>find/p</code> command finds persons whose phone numbers are the same as any of the keywords.</p>
+</li>
+<li>
+<p>The number of students found will be displayed on the PersonCard GUI.</p>
+</li>
+<li>
+<p>All the keywords are put into a List&lt;String&gt; and converted to a stream. Perform .anyMatch(&#8230;&#8203;) on the keywords stream to find all the students whose phone numbers match any of the keywords.</p>
+</li>
+<li>
+<p>The matching process is case insensitive and support fuzzy matching. Fuzzy matching is achieved by applying Levenshtein Distance method. We set the Levenshtein Distance to be less than 3, which means at most two differences.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/FindPhoneCommandLogicDiagram-1.png" alt="FindPhoneCommandLogicDiagram 1" width="800">
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations"><a class="link" href="#design-considerations">Design considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-fuzzy-matching"><a class="link" href="#aspect-fuzzy-matching">Aspect: Fuzzy matching</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Allow fuzzy matching in searching.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros:</p>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Small typos will not affect the searching output.</p>
+</li>
+<li>
+<p>Make the application much more practical and easier to use.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Cons:</p>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Some minor mistakes in spelling might lead to totally different meanings. We have tried to prevent this from happening by limiting the minimum length of keywords for fuzzy matching, however, there might still be a few cases that exist problems.</p>
+</li>
+</ol>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="project-powerpointlabs"><a class="link" href="#project-powerpointlabs">PROJECT: PowerPointLabs</a></h2>
+<div class="sectionbody">
+<hr>
+<div class="paragraph">
+<p><em>{Optionally, you may include other projects in your portfolio.}</em></p>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 10:14:16 UTC</div></div></div></body></html>

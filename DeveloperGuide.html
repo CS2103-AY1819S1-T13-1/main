@@ -30,7 +30,7 @@
 <li><a href="#implementation">3. Implementation</a>
 <ul class="sectlevel2">
 <li><a href="#undo-redo-feature">3.1. Undo/Redo feature</a></li>
-<li><a href="#find-feature">3.2. Find Feature</a></li>
+<li><a href="#find-related-feature">3.2. Find Related Feature</a></li>
 <li><a href="#grades-feature">3.3. Grades Feature</a></li>
 <li><a href="#earnings-feature">3.4. Earnings Feature</a></li>
 <li><a href="#promote-feature">3.5. Promote Feature</a></li>
@@ -482,7 +482,7 @@ Note how the event is propagated through the <code>EventsCenter</code> to the <c
 <p><strong>API</strong> : <a href="https://github.com/CS2103-AY1819S1-T13-1/main/src/main/java/seedu/address/ui/Ui.java"><code>Ui.java</code></a></p>
 </div>
 <div class="paragraph">
-<p>The UI consists of a <code>MainWindow</code> that is made up of parts e.g.<code>CommandBox</code>, <code>ResultDisplay</code>, <code>PersonListPanel</code>, <code>StatusBarFooter</code>, <code>BrowserPanel</code> etc. All these, including the <code>MainWindow</code>, inherit from the abstract <code>UiPart</code> class.</p>
+<p>The UI consists of a <code>MainWindow</code> that is made up of parts e.g.<code>CommandBox</code>, <code>ResultDisplay</code>, <code>PersonListPanel</code>, <code>StatusBarFooter</code>, <code>StudentPanel</code> etc. All these, including the <code>MainWindow</code>, inherit from the abstract <code>UiPart</code> class.</p>
 </div>
 <div class="paragraph">
 <p>The <code>UI</code> component uses JavaFx UI framework. The layout of these UI parts are defined in matching <code>.fxml</code> files that are in the <code>src/main/resources/view</code> folder. For example, the layout of the <a href="https://github.com/CS2103-AY1819S1-T13-1/main/src/main/java/seedu/address/ui/MainWindow.java"><code>MainWindow</code></a> is specified in <a href="https://github.com/CS2103-AY1819S1-T13-1/main/src/main/resources/view/MainWindow.fxml"><code>MainWindow.fxml</code></a></p>
@@ -829,35 +829,172 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </div>
 </div>
 <div class="sect2">
-<h3 id="find-feature"><a class="link" href="#find-feature">3.2. Find Feature</a></h3>
+<h3 id="find-related-feature"><a class="link" href="#find-related-feature">3.2. Find Related Feature</a></h3>
+<div class="paragraph">
+<p>The find related features include four commands, which are <code>FindCommand</code>, <code>FindAddressCommand</code>, <code>FindEmailCommand</code>, and <code>FindPhoneCommand</code>. They support finding by name, address, email, and phone numbers.</p>
+</div>
 <div class="sect3">
 <h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">3.2.1. Current Implementation</a></h4>
+<div class="sect4">
+<h5 id="find-command-code-find-keyword-more_keywords-code"><a class="link" href="#find-command-code-find-keyword-more_keywords-code">Find command (<code>find KEYWORD [MORE_KEYWORDS]&#8230;&#8203;</code>)</a></h5>
+<div class="paragraph">
+<p>The <code>find</code> command has been implemented to find students by their names.</p>
+</div>
 <div class="ulist">
 <ul>
 <li>
-<p>Tutor Pal is able to find a student through his/her name by using the command "find NAME".</p>
+<p>The <code>find</code> command accepts one or more arguments, each argument represent a keyword.</p>
 </li>
 <li>
-<p>A Find by Email command has been added, which allows a tutor to find a student through his/her
-email by using the command "find/e EMAIL".</p>
+<p>The <code>find</code> command finds persons whose names contain any of the given keywords.</p>
+</li>
+<li>
+<p>The number of students found will be displayed on the PersonCard GUI.</p>
+</li>
+<li>
+<p>All the keywords are put into a List&lt;String&gt; and converted to a stream. Perform .anyMatch(&#8230;&#8203;) on the keywords stream to find all the students whose names match any of the keywords.</p>
+</li>
+<li>
+<p>The matching process is case insensitive and support fuzzy matching. Fuzzy matching is achieved by applying Levenshtein Distance method. The condition for using fuzzy matching in this command is the length of the keyword is greater than 3 and if the condition is satisfied, we set the Levenshtein Distance to be less than 3, which means at most two differences.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/FindCommandLogicDiagram.png" alt="FindCommandLogicDiagram" width="800">
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="find-by-address-command-code-find-a-keyword-more_keywords-code"><a class="link" href="#find-by-address-command-code-find-a-keyword-more_keywords-code">Find by address command (<code>find/a KEYWORD [MORE_KEYWORDS]&#8230;&#8203;</code>)</a></h5>
+<div class="paragraph">
+<p>The <code>find/a</code> command has been implemented to find students by their address.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The <code>find/a</code> command accepts one or more arguments, each argument represent a keyword.</p>
+</li>
+<li>
+<p>The <code>find/a</code> command finds persons whose addresses contain all the given keywords.</p>
+</li>
+<li>
+<p>The number of students found will be displayed on the PersonCard GUI.</p>
+</li>
+<li>
+<p>All the keywords are put into a List&lt;String&gt; and converted to a stream. Perform .allMatch(&#8230;&#8203;) on the keywords stream to find all the students whose addresses match all the keywords.</p>
+</li>
+<li>
+<p>The matching process is case insensitive and support fuzzy matching. Fuzzy matching is achieved by applying Levenshtein Distance method. The condition for using fuzzy matching in this command is the length of the keyword is greater than 3 and if the condition is satisfied and the length of keyword is 4 to 7, we set the Levenshtein Distance to be less than 3; if the length of keyword is more than 8, we set the Levenshtein Distance to be less than 4.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/FindAddressCommandLogicDiagram.png" alt="FindAddressCommandLogicDiagram" width="800">
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="find-by-email-command-code-find-e-email-more_emails-code"><a class="link" href="#find-by-email-command-code-find-e-email-more_emails-code">Find by email command (<code>find/e EMAIL [MORE_EMAILS]&#8230;&#8203;</code>)</a></h5>
+<div class="paragraph">
+<p>The <code>find/e</code> command has been implemented to find students by their email.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The <code>find/e</code> command accepts one or more arguments, each argument represent an email address keyword.</p>
+</li>
+<li>
+<p>The <code>find/e</code> command finds persons whose emails are the same as any of the keywords.</p>
+</li>
+<li>
+<p>The number of students found will be displayed on the PersonCard GUI.</p>
+</li>
+<li>
+<p>All the keywords are put into a List&lt;String&gt; and converted to a stream. Perform .anyMatch(&#8230;&#8203;) on the keywords stream to find all the students whose emails match any of the keywords.</p>
+</li>
+<li>
+<p>The matching process is case insensitive and support fuzzy matching. Fuzzy matching is achieved by applying Levenshtein Distance method. We set the Levenshtein Distance to be less than 4, which means at most three differences.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/FindEmailCommandLogicDiagram.png" alt="FindEmailCommandLogicDiagram" width="800">
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="find-by-phone-number-command-code-find-p-phone_number-more_phone_numbers-code"><a class="link" href="#find-by-phone-number-command-code-find-p-phone_number-more_phone_numbers-code">Find by phone number command (<code>find/p PHONE_NUMBER [MORE_PHONE_NUMBERS]&#8230;&#8203;</code>)</a></h5>
+<div class="paragraph">
+<p>The <code>find/p</code> command has been implemented to find students by their phone number.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The <code>find/p</code> command accepts one or more arguments, each argument represent a phone number keyword.</p>
+</li>
+<li>
+<p>The <code>find/p</code> command finds persons whose phone numbers are the same as any of the keywords.</p>
+</li>
+<li>
+<p>The number of students found will be displayed on the PersonCard GUI.</p>
+</li>
+<li>
+<p>All the keywords are put into a List&lt;String&gt; and converted to a stream. Perform .anyMatch(&#8230;&#8203;) on the keywords stream to find all the students whose phone numbers match any of the keywords.</p>
+</li>
+<li>
+<p>The matching process is case insensitive and support fuzzy matching. Fuzzy matching is achieved by applying Levenshtein Distance method. We set the Levenshtein Distance to be less than 3, which means at most two differences.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/FindPhoneCommandLogicDiagram-1.png" alt="FindPhoneCommandLogicDiagram 1" width="800">
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">3.2.2. Design considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-fuzzy-matching"><a class="link" href="#aspect-fuzzy-matching">Aspect: Fuzzy matching</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Allow fuzzy matching in searching.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros:</p>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Small typos will not affect the searching output.</p>
+</li>
+<li>
+<p>Make the application much more practical and easier to use.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Cons:</p>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Some minor mistakes in spelling might lead to totally different meanings. We have tried to prevent this from happening by limiting the minimum length of keywords for fuzzy matching, however, there might still be a few cases that exist problems.</p>
+</li>
+</ol>
+</div>
+</li>
+</ul>
+</div>
 </li>
 </ul>
 </div>
 </div>
-<div class="sect3">
-<h4 id="future-implementation"><a class="link" href="#future-implementation">3.2.2. Future Implementation</a></h4>
-<div class="ulist">
-<ul>
-<li>
-<p>Further enhance the find command so that a tutor is able to find a student through his/her
-phone number and address.</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect3">
-<h4 id="design-considerations-ongoing"><a class="link" href="#design-considerations-ongoing">3.2.3. Design Considerations[ongoing]</a></h4>
-
 </div>
 </div>
 <div class="sect2">
@@ -876,7 +1013,7 @@ phone number and address.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="future-implementation-2"><a class="link" href="#future-implementation-2">3.3.2. Future Implementation</a></h4>
+<h4 id="future-implementation"><a class="link" href="#future-implementation">3.3.2. Future Implementation</a></h4>
 <div class="ulist">
 <ul>
 <li>
@@ -889,7 +1026,7 @@ phone number and address.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-ongoing-2"><a class="link" href="#design-considerations-ongoing-2">3.3.3. Design Considerations[ongoing]</a></h4>
+<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">3.3.3. Design Considerations</a></h4>
 
 </div>
 </div>
@@ -934,7 +1071,7 @@ the user.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="future-implementation-3"><a class="link" href="#future-implementation-3">3.4.2. Future Implementation</a></h4>
+<h4 id="future-implementation-2"><a class="link" href="#future-implementation-2">3.4.2. Future Implementation</a></h4>
 <div class="ulist">
 <ul>
 <li>
@@ -952,7 +1089,7 @@ changed their tuition time slots.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">3.4.3. Design considerations</a></h4>
+<h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">3.4.3. Design considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-the-type-of-arguments-acceptable"><a class="link" href="#aspect-the-type-of-arguments-acceptable">Aspect: The type of arguments acceptable</a></h5>
 <div class="ulist">
@@ -1054,14 +1191,14 @@ is assigned to a student if the promote function is called on a student who is i
 </div>
 </div>
 <div class="sect3">
-<h4 id="future-implementation-4"><a class="link" href="#future-implementation-4">3.5.2. Future Implementation</a></h4>
+<h4 id="future-implementation-3"><a class="link" href="#future-implementation-3">3.5.2. Future Implementation</a></h4>
 <div class="paragraph">
 <p>Implement a function to allow automated promotion of all students in TutorPal at the beginning of the year and
 allow users to configure TutorPal the promote feature to be automatic or manual.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">3.5.3. Design considerations</a></h4>
+<h4 id="design-considerations-5"><a class="link" href="#design-considerations-5">3.5.3. Design considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-promote-feature-to-be-automated-by-time-or-by-manual-user-input"><a class="link" href="#aspect-promote-feature-to-be-automated-by-time-or-by-manual-user-input">Aspect: Promote feature to be automated by time or by manual user input</a></h5>
 <div class="ulist">
@@ -1153,7 +1290,7 @@ allow users to configure TutorPal the promote feature to be automatic or manual.
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">3.6.2. Design Considerations</a></h4>
+<h4 id="design-considerations-6"><a class="link" href="#design-considerations-6">3.6.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-data-structure-to-support-the-time-attribute"><a class="link" href="#aspect-data-structure-to-support-the-time-attribute">Aspect: Data structure to support the time attribute</a></h5>
 <div class="ulist">
@@ -1228,7 +1365,7 @@ allow users to configure TutorPal the promote feature to be automatic or manual.
 </div>
 </div>
 <div class="sect3">
-<h4 id="future-implementation-5"><a class="link" href="#future-implementation-5">3.7.2. Future Implementation</a></h4>
+<h4 id="future-implementation-4"><a class="link" href="#future-implementation-4">3.7.2. Future Implementation</a></h4>
 <div class="ulist">
 <ul>
 <li>
@@ -1242,7 +1379,7 @@ allow users to configure TutorPal the promote feature to be automatic or manual.
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-5"><a class="link" href="#design-considerations-5">3.7.3. Design Considerations</a></h4>
+<h4 id="design-considerations-7"><a class="link" href="#design-considerations-7">3.7.3. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="alternative-1-current-choice-arraylist-s-add-command-is-used-for-the-addition-of-the-time-into-the-time-array-list"><a class="link" href="#alternative-1-current-choice-arraylist-s-add-command-is-used-for-the-addition-of-the-time-into-the-time-array-list">Alternative 1(current choice):** ArrayList&#8217;s add command is used for the addition of the time into the time array list.</a></h5>
 <div class="ulist">
@@ -1293,7 +1430,7 @@ allow users to configure TutorPal the promote feature to be automatic or manual.
 </div>
 </div>
 <div class="sect3">
-<h4 id="future-implementation-6"><a class="link" href="#future-implementation-6">3.8.2. Future Implementation</a></h4>
+<h4 id="future-implementation-5"><a class="link" href="#future-implementation-5">3.8.2. Future Implementation</a></h4>
 <div class="ulist">
 <ul>
 <li>
@@ -3577,4 +3714,4 @@ Expected: The amount in dollar of tuition fees earned on 9 December 2018.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 09:53:23 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 10:14:16 UTC</div></div></div></body></html>
