@@ -391,6 +391,163 @@ Deletes grade record named "Y1819S1_Mid" for the first person in the display pan
 </tbody>
 </table>
 <div class="sect2">
+<h3 id="use-case-add-grade-records-for-the-student-when-creating-a-new-student"><a class="link" href="#use-case-add-grade-records-for-the-student-when-creating-a-new-student">Use case: add grade records for the student when creating a new student</a></h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User indicate the names of the exams and the scores when adding a student.</p>
+</li>
+<li>
+<p>System add the student with some grade records.
+Use case ends</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a. User inputs an invalid score.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a1. System displays an error message.</p>
+</li>
+<li>
+<p>1a2. System prompts user for a corrected input.</p>
+<div class="paragraph">
+<p>Use case resumes from step 2.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="use-case-add-or-edit-grade-record-for-a-student-using-edit"><a class="link" href="#use-case-add-or-edit-grade-record-for-a-student-using-edit">Use case: add or edit grade record for a student using edit</a></h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User indicate the index of the student and the grade record when editing a student.</p>
+</li>
+<li>
+<p>System edit the student with some grade records.
+Use case ends</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a. User inputs an invalid score.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a1. System displays an error message.</p>
+</li>
+<li>
+<p>1a2. System prompts user for a corrected input.</p>
+<div class="paragraph">
+<p>Use case resumes from step 2.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1b. User input a non-existing exam name.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1b1. System add a new grade record for the student.</p>
+<div class="paragraph">
+<p>Use case ends</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="use-case-delete-a-grade-record"><a class="link" href="#use-case-delete-a-grade-record">Use case: delete a grade record</a></h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User indicate the index of the student and the exam name.</p>
+</li>
+<li>
+<p>System delete the grade record from the student.
+Use case ends</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a. User inputs a non-existing exam name.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a1. System displays an error message.</p>
+</li>
+<li>
+<p>1a2. System prompts user for a corrected input.</p>
+<div class="paragraph">
+<p>Use case resumes from step 2.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1b. User input command in error format.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1b1. System displays an error message.</p>
+</li>
+<li>
+<p>1b2. System prompts user for a corrected input.</p>
+<div class="paragraph">
+<p>Use case resumes from step 2.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
 <h3 id="grades-feature"><a class="link" href="#grades-feature">Grades Feature</a></h3>
 <div class="sect3">
 <h4 id="current-implementation"><a class="link" href="#current-implementation">Current Implementation</a></h4>
@@ -634,4 +791,4 @@ If user edit a existing exam, the app will update the score of the grade record.
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 15:01:19 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 15:01:51 UTC</div></div></div></body></html>
